@@ -1,0 +1,6 @@
+<<<<<<< HEAD
+src/assets/videos/hero-section.mp4 filter=lfs diff=lfs merge=lfs -text
+=======
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+>>>>>>> main
+*.zip filter=lfs diff=lfs merge=lfs -text

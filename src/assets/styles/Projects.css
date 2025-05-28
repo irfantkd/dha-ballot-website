@@ -1,0 +1,50 @@
+styles.css
+
+.carousel-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* Ensures full viewport height */
+  width: 100%;
+}
+.project-carousel-container {
+  position: relative;
+  width: 100%;
+}
+
+.arrow-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 90px;
+  color: white;
+  font-weight: lighter;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 50;
+}
+
+/* Default for larger screens (md and above) */
+.arrow-button.left {
+  left: -35px; /* For larger screens */
+}
+
+.arrow-button.right {
+  right: -35px; /* For larger screens */
+}
+
+/* For smaller screens (mobile) */
+@media (max-width: 640px) {
+  .arrow-button.left {
+    left: 10px; /* Adjust for mobile */
+  }
+
+  .arrow-button.right {
+    right: 10px; /* Adjust for mobile */
+  }
+}
+
+.arrow-button:focus {
+  outline: none;
+}

@@ -1,0 +1,69 @@
+/* .mySwiper {
+  border-radius: 18px;
+  box-shadow: -10px 0 15px rgba(50, 50, 50, 0.8),
+    15px 0 30px rgba(50, 50, 50, 0.9);
+}
+
+.mySwiperSlide {
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.mySwiperSlide .img {
+  border-radius: 5px;
+}
+ */
+
+/* Original styles */
+.mySwiper {
+  border-radius: 18px;
+  /* box-shadow: -10px 0 15px rgba(50, 50, 50, 0.8),
+    15px 0 30px rgba(50, 50, 50, 0.9); */
+  position: relative;
+  z-index: 2;
+}
+
+.mySwiperSlide {
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: -2px 0 5px rgba(50, 50, 50, 0.1), 3px 0 8px rgba(50, 50, 50, 0.15);
+}
+
+.mySwiperSlide .img {
+  border-radius: 5px;
+}
+
+/* Custom dark background solution */
+.cards-custom-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.cards-dark-background {
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
+  background-color: transparent;
+  z-index: 1; /* Below the swiper */
+  border-radius: 25px;
+}
+
+/* Additional swiper overrides */
+.swiper-wrapper {
+  z-index: 2; /* Above the background */
+}
+
+/* Fix for the swiper navigation buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  z-index: 10; /* Above everything */
+  color: white !important;
+}
+
+/* Let's also use a CSS custom property for the background color */
+:root {
+  --cards-background-color: #333;
+}

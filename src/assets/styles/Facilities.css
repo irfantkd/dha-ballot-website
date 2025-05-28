@@ -1,0 +1,125 @@
+/* Tailwind custom styles for Swiper pagination of FACILITIES section on home page */
+.custom-pagination .swiper-pagination-bullet {
+  @apply h-2 w-2 rounded-full bg-gray-400 opacity-70 transition-opacity duration-300;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  @apply bg-blue-500 opacity-100;
+}
+
+.facilities-slider {
+  position: relative;
+  padding: 0 20px;
+}
+
+.swiper-custom-navigation {
+  position: relative;
+}
+
+/* Custom styling for Swiper navigation buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  position: absolute;
+  color: #fbfbfb !important;
+  background-color: rgba(86, 86, 86, 0.3);
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 20 !important;
+  margin-top: 0 !important; /* Reset Swiper's default margin */
+}
+
+/* Hover effect for navigation buttons */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff !important;
+  transform: translateY(-50%) scale(1.1) !important;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 1.2rem !important;
+  font-weight: bold;
+}
+
+.swiper-button-next {
+  right: 10px !important;
+}
+
+.swiper-button-prev {
+  left: 10px !important;
+}
+
+/* Make sure the buttons are always visible */
+.swiper-button-disabled {
+  opacity: 0.35 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* Custom pagination styling */
+.custom-pagination {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(86, 86, 86, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: #565656;
+  transform: scale(1.2);
+}
+
+/* .swiper-button-next,
+.swiper-button-prev {
+  color: #fbfbfb;
+  background-color: rgba(86, 86, 86, 0.3);
+  width: 40px;
+  height: 40px;
+
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  cursor: pointer;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 1.2rem;
+}
+
+.swiper-button-next {
+  right: 15px;
+}
+
+.swiper-button-prev {
+  left: 15px;
+} */

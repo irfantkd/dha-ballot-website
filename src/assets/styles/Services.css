@@ -1,0 +1,12 @@
+@media (min-width: 1024px) {
+  .lg-transform-style {
+    transform: translateX(var(--x)) translateY(var(--y));
+  }
+}
+.bg-custom-image {
+  background-image: url('https://kykagroup.com/wp-content/uploads/2023/07/IMG-Worlds-of-Adventure.jpg');
+  background-color: red;
+  background-size: cover;
+  background-position: center;
+}
+

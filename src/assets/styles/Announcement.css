@@ -1,0 +1,85 @@
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Pulse animation for announcement label */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* Animation classes */
+.animate-marquee {
+  animation: marquee var(--duration, ) linear infinite;
+  white-space: nowrap; /* Prevents text wrapping */
+  width: min-content; /* Ensures the element only takes the width of its content */
+  display: inline-block; /* Allows the element to move smoothly */
+}
+
+/* Keyframes for the marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(100vw); /* Start from the right edge of the viewport */
+  }
+  100% {
+    transform: translateX(-100%); /* Move to the left, fully out of view */
+  }
+}
+
+/* Optional: Container styling to handle overflow */
+.marquee-container {
+  overflow: hidden; /* Hides content that moves outside the container */
+  width: 100%; /* Full width of the parent */
+  position: relative; /* Ensures positioning context for the marquee */
+}
+
+.animate-pulse-custom {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* Pause marquee on hover */
+.relative:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* Hover effect on announcement items */
+.announcement-item:hover {
+  transform: scale(1.02);
+  font-size: 1.2rem;
+  transition: transform 0.3s ease, font-size 0.3s ease;
+}
+
+/* Center pagination dots below the Swiper component */
+.responsive-toolbar .fc-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.responsive-toolbar .fc-toolbar-chunk {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem; /* Stack buttons vertically on small screens */
+}
+
+@media (min-width: 768px) {
+  .responsive-toolbar .fc-toolbar-chunk {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem; /* Display in a row on larger screens */
+  }
+}

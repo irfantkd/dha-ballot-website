@@ -1,0 +1,12 @@
+// vite.config.js
+import { defineConfig } from "file:///D:/Codelab%20Projects/dha-website/node_modules/vite/dist/node/index.js";
+import react from "file:///D:/Codelab%20Projects/dha-website/node_modules/@vitejs/plugin-react/dist/index.mjs";
+import eslint from "file:///D:/Codelab%20Projects/dha-website/node_modules/vite-plugin-eslint/dist/index.mjs";
+var vite_config_default = defineConfig({
+  plugins: [react(), eslint()],
+  assetsInclude: ["**/*.JPG", "**/*.jpeg", "**/*.png", "**/*.gif"]
+});
+export {
+  vite_config_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsidml0ZS5jb25maWcuanMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbImNvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9kaXJuYW1lID0gXCJEOlxcXFxDb2RlbGFiIFByb2plY3RzXFxcXGRoYS13ZWJzaXRlXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ZpbGVuYW1lID0gXCJEOlxcXFxDb2RlbGFiIFByb2plY3RzXFxcXGRoYS13ZWJzaXRlXFxcXHZpdGUuY29uZmlnLmpzXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ltcG9ydF9tZXRhX3VybCA9IFwiZmlsZTovLy9EOi9Db2RlbGFiJTIwUHJvamVjdHMvZGhhLXdlYnNpdGUvdml0ZS5jb25maWcuanNcIjtpbXBvcnQgeyBkZWZpbmVDb25maWcgfSBmcm9tICd2aXRlJztcclxuaW1wb3J0IHJlYWN0IGZyb20gJ0B2aXRlanMvcGx1Z2luLXJlYWN0JztcclxuaW1wb3J0IGVzbGludCBmcm9tICd2aXRlLXBsdWdpbi1lc2xpbnQnO1xyXG5cclxuLy8gaHR0cHM6Ly92aXRlanMuZGV2L2NvbmZpZy9cclxuZXhwb3J0IGRlZmF1bHQgZGVmaW5lQ29uZmlnKHtcclxuICBwbHVnaW5zOiBbcmVhY3QoKSwgZXNsaW50KCldLFxyXG4gIGFzc2V0c0luY2x1ZGU6IFsnKiovKi5KUEcnLCAnKiovKi5qcGVnJywgJyoqLyoucG5nJywgJyoqLyouZ2lmJ10sXHJcbn0pO1xyXG4iXSwKICAibWFwcGluZ3MiOiAiO0FBQXVSLFNBQVMsb0JBQW9CO0FBQ3BULE9BQU8sV0FBVztBQUNsQixPQUFPLFlBQVk7QUFHbkIsSUFBTyxzQkFBUSxhQUFhO0FBQUEsRUFDMUIsU0FBUyxDQUFDLE1BQU0sR0FBRyxPQUFPLENBQUM7QUFBQSxFQUMzQixlQUFlLENBQUMsWUFBWSxhQUFhLFlBQVksVUFBVTtBQUNqRSxDQUFDOyIsCiAgIm5hbWVzIjogW10KfQo=

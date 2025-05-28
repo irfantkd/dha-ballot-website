@@ -1,0 +1,26 @@
+.our-message {
+  /* height: 864px; */
+  background-position: top;
+  background-size: cover;
+  background: center;
+  /* background-attachment: fixed; */
+}
+.message-bg-brown {
+  background-color: rgba(90, 52, 36, 0.2);
+  /* height: 864px; */
+}
+.message-bg-black {
+  background-color: #000000d9;
+  /* height: 864px; */
+}
+.message-content {
+  /* flex-basis: 40%; */
+  color: #fff;
+}
+.message-content p {
+  /* margin-left: 6rem; */
+}
+.message-pd-name {
+  font-size: 1.8rem;
+  font-family: 'aktiv-thin';
+}

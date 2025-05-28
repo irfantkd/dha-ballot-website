@@ -1,0 +1,119 @@
+/* Ensure the background and overlay remain the same */
+
+.background-black {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* Adjust opacity for better text readability */
+}
+
+.about-us-video {
+  /* height: 420px; */
+  width: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow for better design */
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.icon-section img {
+  transition: transform 0.3s ease;
+}
+
+.icon-section img:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+  }
+
+  .about-us-video {
+    width: 100%;
+    height: auto;
+  }
+
+  .text-white {
+    text-align: center;
+  }
+
+  .icon-section {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
+}
+.leading-20 {
+  line-height: 4rem !important;
+}
+.leading-12 {
+  line-height: 2.5rem !important;
+}
+
+/* Full-width Background Image/Video Section with Parallax */
+.about-us-section {
+  position: relative;
+  /* height: 100vh; */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Parallax effect */
+  z-index: 1;
+}
+
+.about-overlay {
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent overlay */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0;
+}
+
+.section-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #fdd835; /* Accent color */
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.section-description {
+  font-size: 1.5rem;
+  color: white;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.about-text {
+  font-size: 1.2rem;
+  color: white;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Slight transparent background for readability */
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
+  }
+  .section-description {
+    font-size: 1.2rem;
+  }
+  .about-text {
+    font-size: 1rem;
+  }
+}

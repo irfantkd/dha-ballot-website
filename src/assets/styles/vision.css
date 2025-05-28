@@ -1,0 +1,112 @@
+/* Custom styling for the single gray box behind the image */
+.image-div {
+  height: 390px !important;
+  width: 460px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-image: url(''); */
+}
+
+.gray-box {
+  top: -50px;
+  left: -50px;
+  width: 250px;
+  height: 230px;
+}
+.vision-section {
+  /* margin-left: 5rem; */
+  /* padding-top: 10rem; */
+  /* padding-right: 5rem; */
+  /* padding-bottom: 7rem; */
+}
+@media (max-width: 1180px) {
+  .image-div {
+    height: 290px !important;
+    width: 360px;
+  }
+  /* Smaller box for mobile screens */
+  .gray-box {
+    top: -20px;
+    left: -20px;
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .vision-section {
+    /* margin-left: 0.5rem; */
+    padding-top: 5rem;
+    /* padding-right: 1rem; */
+    padding-bottom: 5rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .white-section-vision {
+    background-image: url(../../assets/images/vision-section/villa.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  .vision-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Black Overlay */
+    z-index: 1;
+  }
+  .vision-section {
+    color: white;
+  }
+
+  .white-section-vision {
+    position: relative;
+    z-index: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .vision-section {
+    margin-left: 0rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    color: white;
+  }
+  .white-section-vision {
+    background-image: url(../../assets/images/vision-section/villa.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  .vision-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Black Overlay */
+    z-index: 1;
+  }
+
+  .white-section-vision {
+    position: relative;
+    z-index: 0;
+  }
+}
+
+@media (max-width: 425px) {
+  .vision-section {
+    /* padding-left: 1rem; */
+    padding-top: 5rem;
+    /* padding-right: 1rem; */
+    padding-bottom: 5rem;
+    margin-left: 0rem;
+  }
+}

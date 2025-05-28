@@ -1,0 +1,361 @@
+/*  */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Poppins', sans-serif !important;
+}
+/* Default gradient header style */
+.gradient-header {
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+/* Initial styles for the header-menu-item */
+/*  */
+.header-menu-item-li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-menu-item {
+  position: relative;
+  color: white; /* Default color 8f the menu item */
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition for color */
+  font-size: 0.8rem;
+}
+@media (max-width: 1024px) {
+  .header-menu-item {
+    font-size: 0.65rem;
+  }
+}
+@media (max-width: 800px) {
+  .header-menu-item {
+    font-size: 0.5rem;
+  }
+}
+/* Adding the line below the menu item */
+.header-menu-item::after {
+  content: '';
+  position: absolute;
+  left: 50%; /* Center it horizontally */
+  right: 50%;
+  bottom: -5px; /* Distance from the text */
+  height: 1px; /* Height of the line */
+  background-color: transparent; /* Initially hidden */
+  transition: all 0.3s ease;
+  transform: scaleX(0); /* Line is initially hidden */
+  transform-origin: center; /* Line starts from the center */
+}
+/* Hover effect: line becomes visible and menu item color changes */
+.header-menu-item:hover::after,
+.scrolled .header-menu-item:hover::after {
+  left: 8px;
+  right: 8px;
+  background-color: currentColor; /* Line color matches text color */
+  transform: scaleX(1); /* Expand the line */
+}
+/* .header-menu-item:hover::after {
+  left: 8px;
+  right: 8px;
+  background-color: white !important; 
+  transform: scaleX(1) !important;
+}
+.scrolled .header-menu-item:hover::after {
+  left: 8px;
+  right: 8px;
+  background-color: black !important; 
+  transform: scaleX(1) !important;
+} */
+.header-menu-item:hover {
+  text-decoration: none;
+}
+.scrolled .header-menu-item {
+  color: black;
+}
+.scrolled .header-menu-item:hover {
+  text-decoration: none;
+}
+/* On scroll: Solid white background with box-shadow */
+.scrolled {
+  background: white !important;
+  /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+  color: black; /* Change text color to match the white background */
+}
+.scrolled a {
+  color: black;
+}
+.scrolled a:focus {
+  color: black !important;
+}
+.logo img {
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease, box-shadow 0.3s ease;
+  /* width: 120px; */
+}
+/* Side Menu with Animated Background, White Background, and Black Text */
+nav li {
+  font-size: 1.7rem;
+}
+/* Menu Icon */
+#menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* width: 40px;
+  height: 20px; */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#menu-toggle .bar {
+  transition: all 0.3s ease;
+}
+
+.scrolled #menu-toggle div {
+  background-color: black; /* White color for the icon */
+}
+.scrolled .logo img {
+  filter: brightness(1) invert(0);
+}
+
+/* When sidebar is open, rotate and position bars to form an "X" */
+#menu-toggle.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-toggle.active .bar:nth-child(2) {
+  transform: rotate(-45deg) translate(7.5px, -7.5px);
+}
+@media (max-width: 766px) {
+  #menu-toggle {
+    /* width: 30px;
+    height: 20px; */
+  }
+  /* When sidebar is open, rotate and position bars to form an "X" */
+  #menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  #menu-toggle.active .bar:nth-child(2) {
+    transform: rotate(-45deg) translate(5.5px, -5.5px);
+  }
+}
+#side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px; /* Sidebar width */
+  height: 100%;
+
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, slideIn, background-color 0.3s ease;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* Top Hello, Sign In Section with Brown Background */
+#side-menu {
+  scroll-snap-type: y mandatory;
+}
+ul li {
+  scroll-snap-align: start;
+}
+ul li a svg {
+  transition: transform 0.3s ease;
+}
+/* Close Icon */
+.close-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  animation: fadeIn 0.5s ease;
+}
+.close-icon img {
+  width: 25px;
+  filter: invert(42%) sepia(37%) saturate(4185%) hue-rotate(11deg)
+    brightness(88%) contrast(96%); /* Brown tone */
+}
+/* Menu List */
+#side-menu ul {
+  list-style: none;
+}
+
+#side-menu ul li a {
+  color: black !important;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+
+  transition: color 0.3s ease;
+}
+.navbar-menu-li {
+  color: black !important;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+
+  transition: color 0.3s ease;
+}
+/* Add a subtle hover underline effect */
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/* Ensure menu items are hidden and slightly moved up by default */
+#side-menu ul li a {
+  /* opacity: 0;  */
+  /* transform: translateY(-20px);  */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+/* When menu is open, each item will fade in and slide down, handled in JS */
+
+#side-menu ul li a:hover::before {
+  width: 100%;
+}
+/* Menu List Animation */
+#side-menu ul li {
+  animation: slideIn 0.4s ease forwards;
+  /* opacity: 0; */
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/* Smooth transitions and small animation when opening the side menu */
+.-translate-x-full {
+  transform: translateX(-100%);
+}
+.transform-none {
+  transform: translateX(0);
+}
+/* Fade In for the Close Icon */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*contact button in sidebar*/
+.contact-btn button {
+  border: 1px solid black;
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+}
+.contact-btn button:hover {
+  transform: scale(1.05); /* Slightly scale the button */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+.sidebar-nav-items-divider {
+  height: 1px;
+  width: 100%;
+  background-color: #d9d9d9;
+  opacity: 0.5;
+}
+/* Ensure parent li has relative positioning */
+li.group {
+  position: relative;
+}
+/* Submenu is initially hidden using opacity and visibility */
+li.group ul {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 25px;
+  right: 0;
+  background-color: white;
+  /* z-index: 20000; */
+  text-transform: capitalize;
+  width: max-content;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.03);
+}
+/* Show the submenu on hover using opacity and visibility */
+li.group:hover ul {
+  opacity: 1;
+  visibility: visible;
+}
+/* Styling the sub-menu items */
+li.group ul li {
+  list-style: none;
+}
+/* Dropdown item styling with reduced height */
+li.group ul li a {
+  display: block;
+  font-size: small;
+  color: #424042;
+  text-decoration: none;
+  padding: 8px 18px; /* Adjusted padding to reduce height */
+}
+/* Persistent yellow background for unique IDs without hover color change */
+#project-ongoing a,
+#project-completed a {
+  background-color: var(--accent-color);
+  color: black;
+}
+#project-ongoing a:hover,
+#project-completed a:hover {
+  background-color: var(--accent-color);
+  color: black !important;
+}
+/* Transition for submenu visibility */
+.header-submenu {
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+/* Ensure View All item has the specified background color */
+#view-all a {
+  background-color: var(--secondary-color);
+  color: white;
+}
+#view-all a:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+/*  */
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.8s ease;
+  opacity: 1; /* Ensure it becomes fully visible */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgb(
+    163,
+    163,
+    163
+  ); /* Adjust the color to match the grayish tone */
+  border-radius: 99px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+}

@@ -1,0 +1,94 @@
+@import 'aos/dist/aos.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .input {
+    @apply rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-yellow-400 md:px-6 md:py-3;
+  }
+  .container {
+    @apply mx-auto w-[85%];
+  }
+  /* https://dev.to/afif/i-made-100-css-loaders-for-your-next-project-4eje */
+  .loader {
+    width: 45px;
+    aspect-ratio: 0.75;
+    --c: no-repeat linear-gradient(theme(colors.stone.800) 0 0);
+    background: var(--c) 0% 50%, var(--c) 50% 50%, var(--c) 100% 50%;
+    background-size: 20% 50%;
+    animation: loading 1s infinite linear;
+  }
+
+  @keyframes loading {
+    20% {
+      background-position: 0% 0%, 50% 50%, 100% 50%;
+    }
+    40% {
+      background-position: 0% 100%, 50% 0%, 100% 50%;
+    }
+    60% {
+      background-position: 0% 50%, 50% 100%, 100% 0%;
+    }
+    80% {
+      background-position: 0% 50%, 50% 50%, 100% 100%;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .pagination {
+    width: 100% !important;
+  }
+}
+
+/* Loader */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  z-index: 9999;
+  transition: opacity 0.5s ease-in-out; /* Change the transition to opacity */
+  opacity: 1; /* Initial opacity */
+}
+
+/* Text animation */
+.anime-element {
+  opacity: 0;
+  display: inline-block;
+  transform: translateY(50px);
+  animation: anime 1s ease forwards;
+  margin-right: 2px;
+  /* font-size: 3rem; */
+  text-transform: uppercase;
+}
+
+.anime-element:nth-child(7),
+.anime-element:nth-child(10),
+.anime-element:nth-child(14) {
+  margin-right: 10px;
+}
+
+@keyframes anime {
+  0% {
+    opacity: 0;
+    transform: translateY(55px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*  Scrollbar hide classes*/
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
