@@ -6,8 +6,9 @@ import ScrollToTop from '../utils/ScrollToTop';
 import Loader from '../ui/Loader';
 import AppLayout from '../ui/AppLayout';
 import NotFound from '../pages/NotFound';
-import { HOME } from './RouteConstants';
+import { APPLICATION, HOME } from './RouteConstants';
 import Home from '../pages/home/Home';
+import NewApplicationForm from '../pages/applicationForm/NewApplicationForm';
 
 const LoadingFallback = () => <Loader />;
 export default function Router() {
@@ -29,6 +30,11 @@ export default function Router() {
           index: true,
           path: HOME,
           element: <Home />,
+        },
+        {
+          index: true,
+          path: APPLICATION,
+          element: <NewApplicationForm />,
         },
       ],
     },
