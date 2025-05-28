@@ -6,9 +6,8 @@ import ScrollToTop from '../utils/ScrollToTop';
 import Loader from '../ui/Loader';
 import AppLayout from '../ui/AppLayout';
 import NotFound from '../pages/NotFound';
-import { BILL, HOME } from './RouteConstants';
+import { HOME } from './RouteConstants';
 import Home from '../pages/home/Home';
-import BillsPayment from '../pages/Billpyment/BillsPayment';
 
 const LoadingFallback = () => <Loader />;
 export default function Router() {
@@ -30,11 +29,6 @@ export default function Router() {
           index: true,
           path: HOME,
           element: <Home />,
-        },
-        {
-          index: true,
-          path: BILL,
-          element: <BillsPayment />,
         },
       ],
     },
