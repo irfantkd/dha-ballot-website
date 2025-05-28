@@ -1,20 +1,24 @@
 import { useRoutes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-
-// import LoaderMain from '../pages/Homepage/components/loader/LoaderMain';
 import ScrollToTop from '../utils/ScrollToTop';
 import Loader from '../ui/Loader';
 import AppLayout from '../ui/AppLayout';
 import NotFound from '../pages/NotFound';
 import { HOME } from './RouteConstants';
 import Home from '../pages/home/Home';
+import SignIn, { Registration } from '../pages/auth/Registration'; // Import the SignIn component (adjust the path as needed)
 
 const LoadingFallback = () => <Loader />;
+
 export default function Router() {
   const routes = useRoutes([
     {
-      path: '/sign-in',
-      element: <Suspense fallback={<LoadingFallback />}> </Suspense>,
+      path: '/register',
+      element: (
+        <Suspense fallback={<LoadingFallback />}>
+          <Registration />
+        </Suspense>
+      ),
     },
     {
       path: '*',
@@ -23,7 +27,6 @@ export default function Router() {
     {
       path: '/',
       element: <AppLayout />,
-
       children: [
         {
           index: true,
@@ -33,10 +36,9 @@ export default function Router() {
       ],
     },
   ]);
-  // return routes;
+
   return (
     <>
-      {/* ScrollToTop ensures scrolling to the top on every route change */}
       <ScrollToTop />
       {routes}
     </>
