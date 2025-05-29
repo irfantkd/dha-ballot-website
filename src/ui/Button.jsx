@@ -33,7 +33,7 @@ function Button({
   const variantStyles = {
     // Solid variants
     primary:
-      'bg-yellow-400 text-stone-800 hover:bg-yellow-300 focus:bg-yellow-300 focus:ring-yellow-300',
+      'bg-gray-800 text-stone-800 hover:bg-gray-900 focus:bg-gray-900 focus:ring-yellow-300',
     secondary:
       'bg-gray-600 text-white hover:bg-gray-700 focus:bg-gray-700 focus:ring-gray-500',
     success:
