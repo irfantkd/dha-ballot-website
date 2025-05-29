@@ -6,7 +6,8 @@ import AppLayout from '../ui/AppLayout';
 import NotFound from '../pages/NotFound';
 import { HOME } from './RouteConstants';
 import Home from '../pages/home/Home';
-import SignIn, { Registration } from '../pages/auth/Registration'; // Import the SignIn component (adjust the path as needed)
+import { Registration } from '../pages/auth/Registration';
+import Login from '../pages/auth/Login';
 
 const LoadingFallback = () => <Loader />;
 
@@ -17,6 +18,14 @@ export default function Router() {
       element: (
         <Suspense fallback={<LoadingFallback />}>
           <Registration />
+        </Suspense>
+      ),
+    },
+    {
+      path: '/login',
+      element: (
+        <Suspense fallback={<LoadingFallback />}>
+          <Login />
         </Suspense>
       ),
     },
