@@ -195,7 +195,7 @@ export function Registration() {
     <section className="mx-auto flex p-5 md:w-[90%] md:gap-10 md:p-0 lg:gap-0">
       <div className="mt-20 w-auto self-center md:mt-4 md:w-3/5">
         <div className="text-center">
-          <h2 className="mb-4 text-2xl font-bold">
+          <h2 className="mb-4 text-3xl font-bold">
             Hello! Register to get started
           </h2>
         </div>
@@ -251,7 +251,7 @@ export function Registration() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-6 w-full rounded-md bg-blue-500 py-2 text-white hover:bg-blue-600"
+                className=" hover:bg-black-600 mt-6 w-full rounded-md bg-black py-2 text-white"
               >
                 {isSubmitting ? 'Signing In...' : 'Register Now'}
               </button>
