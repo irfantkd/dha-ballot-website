@@ -20,30 +20,28 @@ const Navbar = () => {
     <nav className="bg-white shadow-md">
       <div className="mx-auto w-[85%] py-2">
         <div className="flex h-16 items-center justify-between">
-          <div className="flex content-center gap-4 ">
-            {/* Logo Section */}
-            <div className="flex items-center">
-              <img
-                height={130}
-                width={130}
-                src="https://res.cloudinary.com/dktyonr0v/image/upload/v1740463280/logo_czm0sp.png"
-                alt=""
-              />
-            </div>
+          {/* Logo Section */}
+          <div className="flex items-center">
+            <img
+              height={130}
+              width={130}
+              src="https://res.cloudinary.com/dktyonr0v/image/upload/v1740463280/logo_czm0sp.png"
+              alt=""
+            />
+          </div>
 
-            {/* Desktop Navigation Links */}
-            <div className="hidden self-center md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className="px-3 py-2 text-sm font-medium text-gray-700 transition-colors duration-200 hover:text-orange-500"
-                  >
-                    {link.name}
-                  </a>
-                ))}
-              </div>
+          {/* Desktop Navigation Links */}
+          <div className="hidden self-center text-center md:block">
+            <div className="ml-10 flex items-baseline space-x-8">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="px-3 py-2 text-sm font-medium text-gray-700 transition-colors duration-200 hover:text-orange-500"
+                >
+                  {link.name}
+                </a>
+              ))}
             </div>
           </div>
 
