@@ -57,15 +57,14 @@ const Footer = () => {
           {/* Logo Section */}
           <div className="lg:col-span-1">
             <div className="mb-4 flex items-center">
-              {/* Logo placeholder - replace with actual logo */}
-
               <div>
                 <div className="flex items-center">
                   <img
                     height={130}
                     width={130}
                     src="https://res.cloudinary.com/dktyonr0v/image/upload/v1740463280/logo_czm0sp.png"
-                    alt=""
+                    alt="DHA Bahawalpur Logo"
+                    className="object-contain"
                   />
                 </div>
                 <div className="mt-1 text-sm italic text-gray-600"></div>
