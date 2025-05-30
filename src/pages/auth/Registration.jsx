@@ -255,6 +255,15 @@ export function Registration() {
               >
                 {isSubmitting ? 'Signing In...' : 'Register Now'}
               </button>
+              <p className="mt-6 text-center text-sm text-gray-600">
+                Already have an account?{' '}
+                <Link
+                  to="/login"
+                  className="font-medium text-black hover:underline"
+                >
+                  Login Now
+                </Link>
+              </p>
             </Form>
           )}
         </Formik>
