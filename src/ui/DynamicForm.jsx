@@ -385,7 +385,7 @@ export default function DynamicForm({
                   key={field.name}
                   field={field}
                   register={register}
-                  control={control} {/* ✅ this was missing */}
+                  control={control}
                   validationRules={getValidationRules(field)}
                   error={errors[field.name]}
                   watch={watch}
