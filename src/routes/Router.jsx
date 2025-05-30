@@ -4,7 +4,7 @@ import ScrollToTop from '../utils/ScrollToTop';
 import Loader from '../ui/Loader';
 import AppLayout from '../ui/AppLayout';
 import NotFound from '../pages/NotFound';
-import { BILL, HOME,BALLOTFORM } from './RouteConstants';
+import { BILL, HOME,ballotform } from './RouteConstants';
 import Home from '../pages/home/Home';
 // import SignIn, { Registration } from '../pages/auth/Registration'; // Import the SignIn component (adjust the path as needed)
 import BillsPayment from '../pages/Billpyment/BillsPayment';
@@ -51,7 +51,7 @@ export default function Router() {
         },
         {
           index: true,
-          path:BALLOTFORM ,
+          path:ballotform ,
           element: <BallotForm  />,
         },
       ],
