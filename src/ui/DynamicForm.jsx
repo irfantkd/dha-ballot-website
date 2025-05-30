@@ -226,7 +226,6 @@
 //   );
 // }
 
-
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Button from './Button';
@@ -246,15 +245,13 @@ export default function DynamicForm({
   initialData = {},
   className = '',
   loading = false,
-  // Confirmation dialog props
   confirmSubmit = {
     title: 'Save Changes?',
     message: 'Are you sure you want to save these changes?',
   },
   confirmCancel = {
     title: 'Discard Changes?',
-    message:
-      'Are you sure you want to discard your changes? This action cannot be undone.',
+    message: 'Are you sure you want to discard your changes? This action cannot be undone.',
   },
   showConfirmation = true,
 }) {
@@ -265,7 +262,6 @@ export default function DynamicForm({
     data: null,
   });
 
-  // ✅ Extract `control` here
   const {
     register,
     control,
@@ -295,7 +291,7 @@ export default function DynamicForm({
       setConfirmDialog({
         isOpen: true,
         type: 'submit',
-        data: data,
+        data,
       });
     } else {
       await executeSubmit(data);
@@ -326,15 +322,12 @@ export default function DynamicForm({
   };
 
   const executeCancel = () => {
-    if (onCancel) {
-      onCancel();
-    }
+    onCancel && onCancel();
     reset();
   };
 
   const handleConfirmation = async () => {
     setConfirmDialog({ isOpen: false, type: null, data: null });
-
     if (confirmDialog.type === 'submit') {
       await executeSubmit(confirmDialog.data);
     } else if (confirmDialog.type === 'cancel') {
@@ -353,31 +346,24 @@ export default function DynamicForm({
       case 'cancel':
         return confirmCancel;
       default:
-        return {
-          title: 'Are you sure?',
-          message: null,
-        };
+        return { title: 'Are you sure?', message: null };
     }
   };
 
   const dialogContent = getDialogContent();
 
   return (
-    <div className='w-full p-20'>
-      <div
-        className={`mx-auto w-full  rounded-lg bg-white p-6  ${className}`}
-      >
+    <div className="w-full max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className={`rounded-lg bg-white p-4 sm:p-6 shadow-md ${className}`}>
         <div className="mb-6 text-center">
           <h1 className="mb-2 text-2xl font-bold text-gray-900">{title}</h1>
           {subtitle && (
-            <p className="whitespace-pre-wrap text-sm leading-relaxed text-gray-600">
-              {subtitle}
-            </p>
+            <p className="text-sm text-gray-600">{subtitle}</p>
           )}
         </div>
 
         <form onSubmit={handleSubmit(onSubmitHandler)}>
-          <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {fields
               .filter((field) => field && typeof field === 'object' && field.name)
               .map((field) => (
@@ -394,7 +380,7 @@ export default function DynamicForm({
               ))}
           </div>
 
-          <div className="flex justify-center gap-4">
+          <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4">
             <Button
               type="button"
               variant="secondary"
@@ -431,4 +417,3 @@ export default function DynamicForm({
     </div>
   );
 }
-
