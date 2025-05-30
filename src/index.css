@@ -83,12 +83,48 @@
   }
 }
 
-/*  Scrollbar hide classes*/
-/* Hide scrollbar but keep scroll functionality */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+.custom-glow-border {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  /* Start with a subtle border or no border, let the pseudo-element handle the glow */
+  border: 1px solid rgba(209, 213, 219, 0.3); /* A very light, transparent gray */
+  z-index: 0;
 }
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+
+.custom-glow-border::before {
+  content: '';
+  position: absolute;
+  top: -100%; /* Start above the element */
+  left: -100%; /* Start to the left of the element */
+  width: 300%; /* Wider to cover the diagonal movement */
+  height: 300%; /* Taller to cover the diagonal movement */
+  border-radius: 0.5rem;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0%,
+    transparent 30%,
+    #dfe1e3 50%,
+    /* A subtle, slightly darker gray for the shimmer */ transparent 70%,
+    transparent 100%
+  );
+  background-size: 100% 100%;
+  animation: shimmer 4s linear infinite; /* Adjust speed as desired */
+  pointer-events: none;
+  z-index: -1; /* Ensures it's behind the content */
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.3s ease; /* Smooth fade in/out */
+}
+
+.custom-glow-border:hover::before {
+  opacity: 1; /* Fade in on hover */
+}
+
+@keyframes shimmer {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
