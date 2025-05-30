@@ -185,17 +185,6 @@ export default function FormField({
     }
   };
 
-  // return (
-  //   <div className={(field?.width || '') === 'full' ? 'col-span-2' : 'col-span-1'}>
-  //       <label htmlFor={field.name} className="block text-sm font-medium text-gray-700 mb-1">
-  //         {field.label}
-  //         {field.required && <span className="text-red-500 ml-1">*</span>}
-  //       </label>
-  //     {renderField()}
-  //     {error && <p className="text-red-500 text-xs mt-1">{error.message}</p>}
-  //   </div>
-  // );
-
   return (
   <div className={(field && field.width === 'full') ? 'col-span-2' : 'col-span-1'}>
     {field?.type !== 'checkbox' && (

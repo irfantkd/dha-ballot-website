@@ -363,9 +363,9 @@ export default function DynamicForm({
   const dialogContent = getDialogContent();
 
   return (
-    <>
+    <div className='w-full p-20'>
       <div
-        className={`mx-auto max-w-2xl rounded-lg bg-white p-6 shadow-lg ${className}`}
+        className={`mx-auto w-full  rounded-lg bg-white p-6  ${className}`}
       >
         <div className="mb-6 text-center">
           <h1 className="mb-2 text-2xl font-bold text-gray-900">{title}</h1>
@@ -428,7 +428,7 @@ export default function DynamicForm({
           message={dialogContent.message}
         />
       )}
-    </>
+    </div>
   );
 }
 
