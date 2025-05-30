@@ -6,7 +6,7 @@ import AppLayout from '../ui/AppLayout';
 import NotFound from '../pages/NotFound';
 import { BILL, HOME } from './RouteConstants';
 import Home from '../pages/home/Home';
-import SignIn, { Registration } from '../pages/auth/Registration'; // Import the SignIn component (adjust the path as needed)
+// import SignIn, { Registration } from '../pages/auth/Registration'; // Import the SignIn component (adjust the path as needed)
 import BillsPayment from '../pages/Billpyment/BillsPayment';
 import { Registration } from '../pages/auth/Registration';
 import Login from '../pages/auth/Login';
