@@ -294,10 +294,10 @@ import {
 export default function BillsPayment() {
   return (
     <>
-      <div className="ms-10 mt-4 flex items-center gap-2 text-gray-700">
+      {/* <div className="ms-10 mt-4 flex items-center gap-2 text-gray-700">
         <CreditCard size={20} className="text-gray-500" />
         <h1 className="text-xl font-semibold text-gray-800">Bills & Payment</h1>
-      </div>
+      </div> */}
       <div className="mx-auto max-w-6xl bg-white p-6">
         <div className="rounded-xl border border-gray-200 p-8 shadow-sm">
           {/* Main Cards */}

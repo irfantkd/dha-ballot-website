@@ -2,8 +2,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 // const REACT_APP_API_URL = 'https://app.dhabahawalpur.com/public/api';
 // const REACT_APP_API_URL = 'https://dha-api.codelab.pk/public/api';
-const REACT_APP_API_URL = 'https://test-app.dhabahawalpur.com/public/api';
-// const REACT_APP_API_URL = 'http://192.168.1.33:8000/api';
+// const REACT_APP_API_URL = 'https://test-app.dhabahawalpur.com/public/api';
+const REACT_APP_API_URL = 'http://192.168.1.33:8001/api';
 
 const API_URL = REACT_APP_API_URL;
 

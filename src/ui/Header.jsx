@@ -11,7 +11,7 @@ const Header = ({ children, className = '' }) => {
       <div>
         <div
           className={`${className} // relative  flex h-[43dvh] w-full items-center  justify-center bg-cover bg-center
-          sm:h-[50dvh] sm:h-[60dvh]
+          sm:h-[50dvh] 
           `}
           style={{
             backgroundImage: `url(${
