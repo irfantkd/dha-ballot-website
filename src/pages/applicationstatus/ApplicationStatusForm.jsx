@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import ReCAPTCHA from 'react-google-recaptcha';
 import FormField from '../../ui/FormField';
-import Button from '../../ui/Button'; // Import your Button component
+import Button from '../../ui/Button';
 
 export default function ApplicationStatusForm() {
   const {
@@ -28,8 +28,6 @@ export default function ApplicationStatusForm() {
     setIsSearchingApplication(true);
     try {
       console.log('Searching by Application Number:', data);
-      // Handle application number search API call here
-      // await searchByApplicationNumber(data);
     } catch (error) {
       console.error('Error searching by application number:', error);
     } finally {
@@ -46,8 +44,6 @@ export default function ApplicationStatusForm() {
     setIsSearchingCnic(true);
     try {
       console.log('Searching by CNIC:', data);
-      // Handle CNIC search API call here
-      // await searchByCnic(data);
     } catch (error) {
       console.error('Error searching by CNIC:', error);
     } finally {
@@ -100,21 +96,20 @@ export default function ApplicationStatusForm() {
 
   return (
     <div className="min-h-screen w-full px-4 py-6 sm:px-6 lg:px-8">
-      <div className="w-full max-w-none">
+      <div className="mx-auto max-w-4xl">
         <h2 className="mb-6 text-center text-2xl font-bold text-blue-800">
           Application Status
         </h2>
-        <div></div>
+
         <div className="space-y-8">
           {/* Application Number Section */}
-          <div className=" w-full rounded-md border border-gray-200 bg-white p-4 shadow-sm">
+          <div className="rounded-md border border-gray-200 bg-white p-4 shadow-sm">
             <h3 className="mb-4 text-lg font-semibold text-blue-800">
               Search By Application No
             </h3>
-            <div className=" mx-auto grid w-screen grid-cols-1 ">
-              {/* Application Number */}
-              <div className="flex w-full max-w-2xl items-center gap-4">
-                <label className="w-60 text-sm font-medium text-gray-700">
+            <div className="space-y-4">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <label className="w-full text-sm font-medium text-gray-700 sm:w-60">
                   {fields[0].label}
                 </label>
                 <FormField
@@ -127,9 +122,8 @@ export default function ApplicationStatusForm() {
                 />
               </div>
 
-              {/* Application CAPTCHA */}
-              <div className=" my-4 flex w-full max-w-2xl items-center gap-4">
-                <label className="w-60 text-sm font-medium text-gray-700">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <label className="w-full text-sm font-medium text-gray-700 sm:w-60">
                   CAPTCHA
                 </label>
                 <div>
@@ -146,9 +140,8 @@ export default function ApplicationStatusForm() {
                 </div>
               </div>
 
-              {/* Application CAPTCHA Code */}
-              <div className="flex w-full max-w-2xl items-center gap-4">
-                <label className="w-60 text-sm font-medium text-gray-700">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <label className="w-full text-sm font-medium text-gray-700 sm:w-60">
                   {fields[1].label}
                 </label>
                 <FormField
@@ -176,15 +169,14 @@ export default function ApplicationStatusForm() {
             </div>
           </div>
 
-          {/* CNIC/NICOP Section */}
-          <div className="w-full rounded-md border border-gray-200 bg-white p-4 shadow-sm">
+          {/* CNIC Section */}
+          <div className="rounded-md border border-gray-200 bg-white p-4 shadow-sm">
             <h3 className="mb-4 text-lg font-semibold text-blue-800">
               Search By CNIC / NICOP
             </h3>
-            <div className="grid grid-cols-1 gap-4">
-              {/* CNIC */}
-              <div className="flex w-full max-w-2xl items-center gap-4">
-                <label className="w-60 text-sm font-medium text-gray-700">
+            <div className="space-y-4">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <label className="w-full text-sm font-medium text-gray-700 sm:w-60">
                   {fields[2].label}
                 </label>
                 <FormField
@@ -197,9 +189,8 @@ export default function ApplicationStatusForm() {
                 />
               </div>
 
-              {/* CNIC CAPTCHA */}
-              <div className="flex w-full max-w-2xl items-center gap-4">
-                <label className="w-60 text-sm font-medium text-gray-700">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <label className="w-full text-sm font-medium text-gray-700 sm:w-60">
                   CAPTCHA
                 </label>
                 <div>
@@ -216,9 +207,8 @@ export default function ApplicationStatusForm() {
                 </div>
               </div>
 
-              {/* CNIC CAPTCHA Code */}
-              <div className="flex w-full max-w-2xl items-center gap-4">
-                <label className="w-60 text-sm font-medium text-gray-700">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <label className="w-full text-sm font-medium text-gray-700 sm:w-60">
                   {fields[3].label}
                 </label>
                 <FormField
