@@ -2,4 +2,10 @@ export const HOME = '/';
 export const BILL = '/bills-payment';
 export const APPLICATION = '/application';
 export const ballotform = '/BallotForm';
-
+export const PRIVACYPOLICY = '/privacy-policy';
+export const TERMANDCONDITIONS = '/term-and-condition';
+export const REFUNDPOLICY = '/refund-policy';
+export const CONTACTUS = '/contact-us';
+export const FAQS = '/faqs';
+export const BANKCONTACTS = '/bank-contacts';
+export const ABOUTUS = '/about-us';

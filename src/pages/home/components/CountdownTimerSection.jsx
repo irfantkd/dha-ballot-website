@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 export default function CountdownTimerSection() {
   // Define the ballot end date in UTC
   // Example: PKT (UTC+5) 23:59:59 on 2025-07-15 is 18:59:59 UTC on 2025-07-15
-  const ballotEndDate = new Date('2025-07-15T18:59:59Z').getTime();
+  const ballotEndDate = new Date('2025-06-02T10:03:59Z').getTime();
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -224,7 +224,7 @@ export default function CountdownTimerSection() {
         {/* Call to Action */}
         <div className="text-center">
           <button
-            className="transform rounded-full bg-red-600 px-10 py-4 text-lg font-bold text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-500 focus:ring-opacity-50 md:text-xl"
+            className="transform rounded-full bg-[#ea5547] px-10 py-4 text-lg font-bold text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-500 focus:ring-opacity-50 md:text-xl"
             style={{ fontFamily: 'Inter, sans-serif' }}
           >
             Register for Ballot Now
