@@ -278,7 +278,10 @@ function BallotForm() {
             title="Payment"
             subtitle="Step 5: Payment"
             fields={step5Fields}
-            submitText="Submit"
+            submitText="Download"
+            currentStep={step}
+            isCancel={false}
+            isSubmit={false}
             {...commonProps}
           />
         );
@@ -327,7 +330,7 @@ function BallotForm() {
 
       {/* Form and Sidebar */}
       <div className="mx-auto flex w-11/12 flex-col lg:flex-row ">
-        <div className="w-full lg:flex-1 px-3">{renderStep()}</div>
+        <div className="w-full px-3 lg:flex-1">{renderStep()}</div>
         <div className="w-full lg:w-[400px]">
           <BallotFrominstruction />
         </div>
