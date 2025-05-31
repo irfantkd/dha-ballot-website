@@ -1,6 +1,13 @@
 import { Play } from 'lucide-react';
 import Button from '../../../ui/Button';
+import { useNavigate } from 'react-router-dom';
 const HeroSection = () => {
+  const navigate = useNavigate('');
+  const handleNavigate = async () => {
+    navigate('/ballot-form');
+    try {
+    } catch (error) {}
+  };
   return (
     <section className="relative flex h-screen items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -35,6 +42,7 @@ const HeroSection = () => {
             historical Bahawalpur.
           </p>
           <Button
+            onClick={handleNavigate}
             style={{ fontFamily: 'Sansation, sans-serif' }}
             className="!hover:bg-red-700 rounded-lg !bg-[#ea5547] px-12 py-3 font-semibold text-white transition-all duration-300"
           >

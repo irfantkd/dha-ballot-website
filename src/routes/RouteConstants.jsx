@@ -1,8 +1,8 @@
 export const HOME = '/';
 export const BILL = '/bills-payment';
 export const APPLICATION = '/application';
-export const ballotform = '/BallotForm';
 export const applicationstatus = '/application-status';
+export const ballotform = '/ballot-form';
 export const PRIVACYPOLICY = '/privacy-policy';
 export const TERMANDCONDITIONS = '/term-and-condition';
 export const REFUNDPOLICY = '/refund-policy';

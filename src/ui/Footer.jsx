@@ -13,10 +13,11 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const quickLinks = [
-    { name: 'About Us', to: '#about' },
-    { name: 'Contact us', to: '#contact' },
+    { name: 'About Us', to: '/about-us' },
+    { name: 'Contact us', to: '/contact-us' },
     { name: 'Privacy Policy', to: '/privacy-policy' },
     { name: 'Term and Condition', to: '/term-and-condition' },
+    { name: 'Faqs', to: '/faqs' },
   ];
 
   const contactInfo = [
