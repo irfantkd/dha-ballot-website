@@ -4,7 +4,7 @@ import ScrollToTop from '../utils/ScrollToTop';
 import Loader from '../ui/Loader';
 import AppLayout from '../ui/AppLayout';
 import NotFound from '../pages/NotFound';
-import { BILL, HOME, ballotform, applicationstatus } from './RouteConstants';
+// import { BILL, HOME, ballotform, applicationstatus } from './RouteConstants';
 
 import {
   ABOUTUS,
@@ -17,6 +17,7 @@ import {
   REFUNDPOLICY,
   TERMANDCONDITIONS,
   ballotform,
+  applicationstatus,
 } from './RouteConstants';
 import Home from '../pages/home/Home';
 // import SignIn, { Registration } from '../pages/auth/Registration'; // Import the SignIn component (adjust the path as needed)
@@ -32,6 +33,7 @@ import ContactUs from '../pages/contactUs/ContactUs';
 import Faqs from '../pages/Faqs/Faqs';
 import BankContacts from '../pages/bankContacts/BankContacts';
 import AboutUs from '../pages/aboutus/AboutUs';
+import ApplicationStatusForm from '../pages/applicationstatus/ApplicationStatusForm';
 const LoadingFallback = () => <Loader />;
 
 export default function Router() {
@@ -77,7 +79,9 @@ export default function Router() {
         {
           index: true,
           path: applicationstatus,
-          element: <ViewApplication />,
+          element: <ApplicationStatusForm />,
+        },
+        {
           path: PRIVACYPOLICY,
           element: <PrivacyPolicy />,
         },
