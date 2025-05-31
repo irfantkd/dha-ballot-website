@@ -278,7 +278,10 @@ function BallotForm() {
             title="Payment"
             subtitle="Step 5: Payment"
             fields={step5Fields}
-            submitText="Submit"
+            submitText="Download"
+            currentStep={step}
+            isCancel={false}
+            isSubmit={false}
             {...commonProps}
           />
         );
