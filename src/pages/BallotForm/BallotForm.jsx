@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DynamicForm from '../../ui/DynamicForm';
 import BallotFrominstruction from './BallotFrominstruction';
+import Header from '../../ui/Header';
 
 function BallotForm() {
   const [step, setStep] = useState(1);
@@ -288,51 +289,58 @@ function BallotForm() {
   };
 
   return (
-    <div className="w-full px-4 py-10">
-      <h1 className="mb-2 text-center text-3xl font-bold">
-        Application for Public Ballot
-      </h1>
-      <p className="mx-auto max-w-lg text-center text-sm leading-relaxed">
-        Please make sure that you provide only correct information. Making false
-        statements will result in cancellation of your application.
-      </p>
-      <p className="mb-7 text-center text-red-600">* Fields are mandatory</p>
+    <>
+      <Header>
+        {{
+          headingText: 'Application for Public Ballot', // Pass the text as headingText
+        }}
+      </Header>{' '}
+      <div className="w-full px-4 py-10">
+        {/* <h1 className="mb-2 text-center text-3xl font-bold">
+          Application for Public Ballot
+        </h1> */}
+        <p className="mx-auto max-w-lg text-center text-sm leading-relaxed">
+          Please make sure that you provide only correct information. Making
+          false statements will result in cancellation of your application.
+        </p>
+        <p className="mb-7 text-center text-red-600">* Fields are mandatory</p>
 
-      {/* Step Navigation */}
+        {/* Step Navigation */}
 
-      <div className="mx-auto mb-9 w-full max-w-5xl px-2">
-        <div className="flex flex-wrap justify-center gap-2 text-center text-sm font-medium">
-          {[
-            'Required Info',
-            'Basic Info',
-            'Next of Kin',
-            'More Details',
-            'Payment',
-          ].map((label, index) => (
-            <button
-              key={label}
-              type="button"
-              onClick={() => setStep(index + 1)}
-              className={`min-w-[130px] flex-1 rounded-md px-3 py-3 text-xs transition sm:text-sm ${
-                step === index + 1
-                  ? 'bg-black text-white'
-                  : 'bg-gray-100 hover:bg-gray-200'
-              }`}
-            >
-              {label}
-            </button>
-          ))}
+        <div className="mx-auto mb-9 w-full max-w-5xl px-2">
+          <div className="flex flex-wrap justify-center gap-2 text-center text-sm font-medium">
+            {[
+              'Required Info',
+              'Basic Info',
+              'Next of Kin',
+              'More Details',
+              'Payment',
+            ].map((label, index) => (
+              <button
+                key={label}
+                type="button"
+                onClick={() => setStep(index + 1)}
+                className={`min-w-[130px] flex-1 rounded-md px-3 py-3 text-xs transition sm:text-sm ${
+                  step === index + 1
+                    ? 'bg-black text-white'
+                    : 'bg-gray-100 hover:bg-gray-200'
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Form and Sidebar */}
+        <div className="mx-auto flex w-11/12 flex-col lg:flex-row ">
+          <div className="w-full px-3 lg:flex-1">{renderStep()}</div>
+          <div className="w-full lg:w-[400px]">
+            <BallotFrominstruction />
+          </div>
         </div>
       </div>
-
-      {/* Form and Sidebar */}
-      <div className="mx-auto flex w-11/12 flex-col lg:flex-row ">
-        <div className="w-full lg:flex-1 px-3">{renderStep()}</div>
-        <div className="w-full lg:w-[400px]">
-          <BallotFrominstruction />
-        </div>
-      </div>
-    </div>
+    </>
   );
 }
 
