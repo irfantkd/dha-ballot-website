@@ -317,6 +317,7 @@ import { useForm } from 'react-hook-form';
 import Button from './Button';
 import FormField from './FormField';
 import ConfirmationDialog from './ConfirmationDialog';
+import ApplicationSubmittedModal from '../pages/BallotForm/component/SubmittedModal';
 
 export default function DynamicForm({
   title,
@@ -353,7 +354,16 @@ export default function DynamicForm({
   });
   const [selectedBank, setSelectedBank] = useState('');
   const [creditCardAgreed, setCreditCardAgreed] = useState(false);
-
+  const [showModal, setShowModal] = useState(false);
+  // const SubmitModal = () => {
+  //   // Do your form logic or API call here
+  //   // On success:
+  //   setShowModal(true);
+  // };
+  // const handleDownloadChallan = () => {
+  //   // Example download logic
+  //   window.open('/downloads/challan.pdf', '_blank');
+  // };
   const {
     register,
     control,
@@ -468,28 +478,29 @@ export default function DynamicForm({
     }
   };
 
-  const handleBankChallanSubmit = async () => {
-    const token = recaptchaRef.current?.getValue();
+  // const handleBankChallanSubmit = async () => {
+  //   const token = recaptchaRef.current?.getValue();
+  //   setShowModal(true); // Show the modal when the button is clicked
 
-    if (!token) {
-      setCaptchaError(true);
-      return;
-    }
+  //   if (!token) {
+  //     setCaptchaError(true);
+  //     return;
+  //   }
 
-    if (!selectedBank) {
-      alert('Please select a bank');
-      return;
-    }
+  //   if (!selectedBank) {
+  //     alert('Please select a bank');
+  //     return;
+  //   }
 
-    setCaptchaError(false);
-    // Handle bank challan submission
-    const formData = watch();
-    await executeSubmit({
-      ...formData,
-      selectedBank,
-      paymentMethod: 'BankChallan',
-    });
-  };
+  //   setCaptchaError(false);
+  //   // Handle bank challan submission
+  //   const formData = watch();
+  //   await executeSubmit({
+  //     ...formData,
+  //     selectedBank,
+  //     paymentMethod: 'BankChallan',
+  //   });
+  // };
 
   const handleCreditCardSubmit = async () => {
     const token = recaptchaRef.current?.getValue();
@@ -607,15 +618,21 @@ export default function DynamicForm({
               <div className="flex items-end">
                 <button
                   type="button"
-                  onClick={handleBankChallanSubmit}
-                  disabled={!captchaVerified || !selectedBank}
+                  onClick={() => setShowModal(true)}
+                  // disabled={!captchaVerified || !selectedBank}
                   className="rounded bg-gray-800 px-6 py-2 text-white "
                 >
                   Submit Application
                 </button>
+                <ApplicationSubmittedModal
+                  isOpen={showModal}
+                  onClose={() => setShowModal(false)}
+                  // onDownload={handleDownloadChallan}
+                />
               </div>
             </div>
           )}
+
           {/* Credit Card Payment Method */}
           {currentStep === 5 && paymentMethod === 'CreditCard' && (
             <div className="mt-6 space-y-4">

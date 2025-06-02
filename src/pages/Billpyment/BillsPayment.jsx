@@ -304,7 +304,7 @@ export default function BillsPayment() {
           {/* Main Cards */}
           <div className="mb-10 grid grid-cols-1 gap-8 md:grid-cols-2">
             {/* Apply for Ballot Card */}
-            <div className="group relative cursor-pointer overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-1 shadow-md transition-all duration-300 ease-in-out hover:shadow-lg">
+            <div className="group relative cursor-pointer overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-1  transition-all duration-300 ease-in-out hover:shadow-sm">
               <div className="relative z-10 p-8 text-center">
                 <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-orange-100 text-[#EA5547] transition-all duration-300 ease-in-out group-hover:scale-110">
                   <FileText size={28} />
@@ -321,7 +321,7 @@ export default function BillsPayment() {
               <div className="absolute inset-0 z-0 rounded-xl ring-2 ring-transparent transition-all duration-300 ease-in-out group-hover:ring-[#FDC62C]"></div>
             </div>
             {/* View Application Card */}
-            <div className="group relative cursor-pointer overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-1 shadow-md transition-all duration-300 ease-in-out hover:shadow-lg">
+            <div className="group relative cursor-pointer overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-1  transition-all duration-300 ease-in-out hover:shadow-sm">
               <div className="relative z-10 p-8 text-center">
                 <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-blue-100 text-[#434143] transition-all duration-300 ease-in-out group-hover:scale-110">
                   <svg
@@ -346,7 +346,7 @@ export default function BillsPayment() {
                   </svg>
                 </div>
                 <h2 className="mb-3 text-2xl font-bold text-gray-900">
-                  View Application
+                  View Application Status
                 </h2>
                 <p className="text-base leading-relaxed text-gray-600">
                   View your application and monitor the current status.
@@ -403,173 +403,112 @@ export default function BillsPayment() {
             </div>
           </div>
           {/* Bills Table */}
-          <div className="overflow-hidden rounded-lg border border-gray-200 shadow-sm">
+          <div className="overflow-x-auto rounded-lg border border-gray-200 shadow">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+              <thead className="bg-gray-100">
                 <tr>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-600"
-                  >
-                    #Bill
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-600"
-                  >
-                    Bill Date
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-600"
-                  >
-                    Due Date
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-600"
-                  >
-                    Status
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-600"
-                  >
-                    Payment Method
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-600"
-                  >
-                    Payment
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-600"
-                  >
-                    Action
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-600"
-                  >
-                    Download
-                  </th>
+                  {[
+                    '#Bill',
+                    'Bill Date',
+                    'Due Date',
+                    'Status',
+                    'Payment Method',
+                    'Payment',
+                    'Action',
+                  ].map((head) => (
+                    <th
+                      key={head}
+                      scope="col"
+                      className="px-6 py-3 text-left text-sm font-semibold uppercase tracking-wide text-gray-700"
+                    >
+                      {head}
+                    </th>
+                  ))}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-100 bg-white">
+              <tbody className="divide-y divide-gray-100 bg-white text-sm">
+                {/* Row 1 - Pending */}
                 <tr>
-                  <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
+                  <td className="px-6 py-4 font-medium text-gray-900">
                     #00001
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">
-                    19-6-2025
+                  <td className="px-6 py-4 text-gray-700">19-6-2025</td>
+                  <td className="px-6 py-4 text-gray-700">19-6-2025</td>
+                  <td className="px-6 py-4">
+                    <span className="inline-flex items-center rounded-md bg-[#CFECF0] px-3 py-1 text-xs font-medium ">
+                      Pending
+                    </span>
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">
-                    19-6-2025
-                  </td>
-                  <td className="whitespace-nowrap px-6 py-4">
-                    <div className="flex items-center gap-2">
-                      <span className="inline-flex rounded-full bg-orange-100 px-3 py-1 text-xs font-medium text-[#EA5547]">
-                        Pending
-                      </span>
-                    </div>
-                  </td>
-                  <td className="whitespace-nowrap px-6 py-4">
-                    <div className="flex  w-[100px] items-center gap-2 rounded-md  bg-[#F3A955] px-3 py-1">
-                      <svg
-                        width="11"
-                        height="14"
-                        viewBox="0 0 11 14"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                          d="M9.33334 8.66666V1.33334H2C1.63181 1.33334 1.33334 1.63181 1.33334 2V8.78047C1.54748 8.7049 1.77293 8.66641 2 8.66666H9.33334ZM0 2V11.3333C0 12.4379 0.895437 13.3333 2 13.3333H10.6667V10.6667H10V12H2C1.63181 12 1.33334 11.7015 1.33334 11.3333V10.6667C1.33334 10.2985 1.63181 10 2 10H10.6667V0H2C0.895437 0 0 0.895437 0 2ZM4.66669 7.33334V4.66666H6V7.33334H4.66669ZM5.33334 4C5.70153 4 6 3.70153 6 3.33334C6 2.96516 5.70153 2.66666 5.33334 2.66666C4.96516 2.66666 4.66669 2.96516 4.66669 3.33334C4.66669 3.70153 4.96516 4 5.33334 4ZM2 10.6667H9.33334V11.3333H2V10.6667Z"
-                          fill="white"
-                        />
-                      </svg>
-
-                      <button className="inline-flex items-center  text-xs font-medium text-white transition-colors duration-200 hover:bg-yellow-400">
-                        Manual
+                  <td className="px-6 py-4">
+                    <div className="flex items-center gap-2 rounded-md bg-yellow-500 px-3  py-1 text-white">
+                      <img
+                        className="h-6 w-6 rounded-full"
+                        src="https://cdn-icons-png.freepik.com/256/1897/1897028.png"
+                        alt="Manual Payment"
+                      />
+                      <button className="text-xs font-medium hover:underline">
+                        Manual Payment
                       </button>
                     </div>
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4 text-sm font-semibold text-gray-900">
+                  <td className="px-6 py-4 font-semibold text-gray-900">
                     15,000.00 Rs.
                   </td>
-                  <td className="whitespace-nowrap">
-                    <button className="inline-flex items-center gap-1 rounded-md bg-[#68482F] px-4 py-1 text-sm font-medium text-white shadow-sm transition-colors duration-200 hover:bg-[#434143]">
-                      Upload Voucher
-                      <Upload className="h-4 w-4" />
-                    </button>
-                  </td>
-                  <td className="whitespace-nowrap">
-                    <button className="inline-flex items-center gap-1 rounded-md bg-[#5BB961] px-4 py-1 text-sm font-medium text-white shadow-sm transition-colors duration-200 hover:bg-[#38893d]">
-                      Download Challan
-                      <Download className="h-4 w-4" />
-                    </button>
+                  <td className="px-6 py-4">
+                    <div className="flex flex-wrap gap-2">
+                      <button className="flex items-center gap-1 rounded-md bg-green-600 px-3 py-1 text-sm text-white hover:bg-green-700">
+                        <Download className="h-4 w-4" />
+                        Download
+                      </button>
+                      <button className="flex items-center gap-1 rounded-md bg-gray-700 px-3 py-1 text-sm text-white hover:bg-gray-900">
+                        <Upload className="h-4 w-4" />
+                        Upload
+                      </button>
+                    </div>
                   </td>
                 </tr>
+
+                {/* Row 2 - Paid */}
                 <tr>
-                  <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
+                  <td className="px-6 py-4 font-medium text-gray-900">
                     #00002
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">
-                    10-5-2025
+                  <td className="px-6 py-4 text-gray-700">10-5-2025</td>
+                  <td className="px-6 py-4 text-gray-700">10-5-2025</td>
+                  <td className="px-6 py-4">
+                    <span className="inline-flex items-center rounded-md bg-[#CFECF0] px-3 py-1 text-xs font-medium ">
+                      Paid
+                    </span>
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">
-                    10-5-2025
-                  </td>
-                  <td className="whitespace-nowrap px-6 py-4">
-                    <div className="flex items-center gap-2">
-                      <span className="inline-flex rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-800">
-                        Paid
-                      </span>
-                      {/* No Pay Now button if status is Paid */}
-                    </div>
-                  </td>
-                  <td className="whitespace-nowrap px-6 py-4">
-                    <div className="flex  w-[100px] items-center gap-2 rounded-md  bg-[#F3A955] px-3 py-1">
-                      <svg
-                        width="20"
-                        height="15"
-                        viewBox="0 0 20 15"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M10.5 13.0752V13.5752H9.5V13.0752H10.5ZM3.30273 1.08496C2.73457 1.71687 2.26223 2.41479 1.8877 3.17871L1.7041 3.57617C1.23381 4.65966 1.0007 5.82828 1 7.0752C0.999437 8.16651 1.17831 9.19736 1.53906 10.1641L1.7041 10.5742C2.10471 11.4943 2.63866 12.3248 3.30273 13.0645L2.93457 13.4326C2.34197 12.7731 1.84461 12.0314 1.44336 11.2051L1.24707 10.7773C0.750574 9.626 0.50069 8.39341 0.5 7.0752L0.511719 6.58496C0.558154 5.61218 0.745346 4.68748 1.07227 3.80859L1.24707 3.37305C1.67956 2.37277 2.24317 1.48925 2.93555 0.717773L3.30273 1.08496ZM17.0645 0.716797C17.7581 1.48848 18.3219 2.37246 18.7539 3.37305C19.251 4.52431 19.5006 5.75706 19.5 7.0752C19.4993 8.39341 19.2494 9.626 18.7529 10.7773C18.3215 11.7777 17.7578 12.6611 17.0645 13.4326L16.6963 13.0645C17.3616 12.3246 17.8967 11.4947 18.2969 10.5742C18.7679 9.49059 19.0006 8.32225 19 7.0752C18.9994 5.98408 18.8207 4.95286 18.4609 3.98633L18.2959 3.57617C17.8962 2.65542 17.3617 1.82493 16.6963 1.08496L17.0645 0.716797ZM5.4082 3.19043C5.02079 3.64905 4.70585 4.16241 4.46484 4.72949C4.15372 5.46156 4 6.24533 4 7.0752C4.00002 7.90501 4.15373 8.68887 4.46484 9.4209C4.70568 9.98749 5.0212 10.4997 5.4082 10.958L5.06445 11.3027C4.63513 10.8013 4.2822 10.2354 4.00879 9.60156C3.67044 8.81705 3.50002 7.97658 3.5 7.0752C3.5 6.17357 3.67029 5.33255 4.00879 4.54785C4.28226 3.91392 4.63501 3.34822 5.06445 2.84668L5.4082 3.19043ZM14.9346 2.84668C15.3642 3.34834 15.7177 3.91372 15.9912 4.54785C16.3297 5.33255 16.5 6.17356 16.5 7.0752C16.5 7.97658 16.3296 8.81705 15.9912 9.60156C15.7177 10.2356 15.3641 10.8011 14.9346 11.3027L14.5908 10.958C14.978 10.4996 15.2942 9.98769 15.5352 9.4209C15.8463 8.68887 16 7.90501 16 7.0752C16 6.24533 15.8463 5.46156 15.5352 4.72949C15.2941 4.16221 14.9784 3.64918 14.5908 3.19043L14.9346 2.84668ZM10 3.5752C10.8339 3.5752 11.5316 3.86385 12.1211 4.45312C12.7106 5.04266 13 5.74109 13 6.5752C13 6.93326 12.9205 7.27242 12.7568 7.59766L12.6816 7.73633C12.435 8.15891 12.1592 8.56517 11.8555 8.95508C11.5326 9.36948 11.2394 9.77004 10.9756 10.1562C10.7754 10.4492 10.6336 10.7562 10.5596 11.0752H9.44141C9.3678 10.755 9.22597 10.447 9.02441 10.1543C8.89241 9.96261 8.75306 9.767 8.60645 9.56738L8.14453 8.95605C7.91675 8.66269 7.70502 8.36072 7.50977 8.0498L7.32031 7.73535C7.10636 7.36787 7.00135 6.98382 7 6.5752C7 5.84526 7.2215 5.21964 7.67188 4.67969L7.87891 4.45312C8.46836 3.86385 9.16608 3.5752 10 3.5752Z"
-                          fill="white"
-                          stroke="white"
-                        />
-                      </svg>
-
-                      <button className="inline-flex items-center  text-xs font-medium text-white transition-colors duration-200 hover:bg-yellow-400">
-                        Online
+                  <td className="px-6 py-4">
+                    <div className="flex items-center gap-2 rounded-md bg-yellow-500 px-3 py-1 text-white">
+                      <img
+                        className="h-6 w-6 rounded-full"
+                        src="https://cdn-icons-png.freepik.com/256/3080/3080541.png"
+                        alt="Online Payment"
+                      />
+                      <button className="text-xs font-medium hover:underline">
+                        Online Payment
                       </button>
                     </div>
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4 text-sm font-semibold text-gray-900">
+                  <td className="px-6 py-4 font-semibold text-gray-900">
                     15,000.00 Rs.
                   </td>
-                  <td className="whitespace-nowrap ">
-                    {/* No Upload Voucher button if status is Paid */}
-                    <button
-                      className="inline-flex cursor-not-allowed items-center gap-1 rounded-md bg-gray-300 px-4 py-1 text-sm font-medium text-gray-700"
-                      disabled
-                    >
-                      Uploaded Done
-                      <Upload className="h-4 w-4" />
-                    </button>
-                  </td>
-                  <td className="whitespace-nowrap">
-                    <button className="inline-flex items-center gap-1 rounded-md bg-[#5BB961] px-4 py-1 text-sm font-medium text-white shadow-sm transition-colors duration-200 hover:bg-[#38893d]">
-                      Download Challan
-                      <Download className="h-4 w-4" />
-                    </button>
+                  <td className="px-6 py-4">
+                    <div className="flex flex-wrap gap-2">
+                      <button className="flex items-center gap-1 rounded-md bg-green-600 px-3 py-1 text-sm text-white hover:bg-green-700">
+                        <Download className="h-4 w-4" />
+                        Download
+                      </button>
+                      <button
+                        className="flex cursor-not-allowed items-center gap-1 rounded-md bg-gray-300 px-3 py-1 text-sm text-gray-600"
+                        disabled
+                      >
+                        <Upload className="h-4 w-4" />
+                        Uploaded
+                      </button>
+                    </div>
                   </td>
                 </tr>
               </tbody>
