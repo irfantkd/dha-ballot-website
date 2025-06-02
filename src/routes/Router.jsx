@@ -34,6 +34,7 @@ import Faqs from '../pages/Faqs/Faqs';
 import BankContacts from '../pages/bankContacts/BankContacts';
 import AboutUs from '../pages/aboutus/AboutUs';
 import ApplicationStatusForm from '../pages/applicationstatus/ApplicationStatusForm';
+import PaymentPage from '../pages/paymentpage/PaymentPage';
 const LoadingFallback = () => <Loader />;
 
 export default function Router() {
@@ -51,6 +52,14 @@ export default function Router() {
       element: (
         <Suspense fallback={<LoadingFallback />}>
           <Login />
+        </Suspense>
+      ),
+    },
+    {
+      path: '/payment',
+      element: (
+        <Suspense fallback={<LoadingFallback />}>
+          <PaymentPage />
         </Suspense>
       ),
     },
