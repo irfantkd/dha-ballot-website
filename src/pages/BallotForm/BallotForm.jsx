@@ -351,7 +351,7 @@ function BallotForm() {
           <BallotFrominstruction />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
