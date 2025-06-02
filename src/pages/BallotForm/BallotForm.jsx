@@ -295,13 +295,11 @@ function BallotForm() {
     <>
       <Header>
         {{
-          headingText: 'Application for Public Ballot', // Pass the text as headingText
+          headingText: 'Application for Public Ballot',
         }}
-      </Header>{' '}
+      </Header>
+
       <div className="w-full px-4 py-10">
-        {/* <h1 className="mb-2 text-center text-3xl font-bold">
-          Application for Public Ballot
-        </h1> */}
         <p className="mx-auto max-w-lg text-center text-sm leading-relaxed">
           Please make sure that you provide only correct information. Making
           false statements will result in cancellation of your application.
@@ -309,7 +307,6 @@ function BallotForm() {
         <p className="mb-7 text-center text-red-600">* Fields are mandatory</p>
 
         {/* Step Navigation */}
-
         <div className="mx-auto mb-9 w-full max-w-5xl px-2">
           <div className="flex flex-wrap justify-center gap-2 text-center text-sm font-medium">
             {[
@@ -343,15 +340,7 @@ function BallotForm() {
           </div>
         </div>
       </div>
-
-      {/* Form and Sidebar */}
-      <div className="mx-auto flex w-11/12 flex-col lg:flex-row ">
-        <div className="w-full px-3 lg:flex-1">{renderStep()}</div>
-        <div className="w-full lg:w-[400px]">
-          <BallotFrominstruction />
-        </div>
-      </div>
-    </div>
+    </>
   );
 }
 
