@@ -4,13 +4,14 @@ import ScrollToTop from '../utils/ScrollToTop';
 import Loader from '../ui/Loader';
 import AppLayout from '../ui/AppLayout';
 import NotFound from '../pages/NotFound';
-import { BILL, HOME,BALLOTFORM } from './RouteConstants';
+import { BILL, HOME,BALLOTFORM, APPLICATION } from './RouteConstants';
 import Home from '../pages/home/Home';
 // import SignIn, { Registration } from '../pages/auth/Registration'; // Import the SignIn component (adjust the path as needed)
 import BillsPayment from '../pages/Billpyment/BillsPayment';
 import { Registration } from '../pages/auth/Registration';
 import Login from '../pages/auth/Login';
 import BallotForm from '../pages/BallotForm/BallotForm';
+import NewApplicationForm from '../pages/applicationForm/NewApplicationForm';
 const LoadingFallback = () => <Loader />;
 
 export default function Router() {
@@ -54,6 +55,7 @@ export default function Router() {
           path:BALLOTFORM ,
           element: <BallotForm  />,
         },
+       
       ],
     },
   ]);
