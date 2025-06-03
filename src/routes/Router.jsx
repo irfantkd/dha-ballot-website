@@ -32,22 +32,6 @@ import {
   applicationstatus,
   howtoapply,
 } from './RouteConstants';
-
-import Home from '../pages/home/Home';
-// import SignIn, { Registration } from '../pages/auth/Registration'; // Import the SignIn component (adjust the path as needed)
-import BillsPayment from '../pages/Billpyment/BillsPayment';
-import { Registration } from '../pages/auth/Registration';
-import Login from '../pages/auth/Login';
-import BallotForm from '../pages/BallotForm/BallotForm';
-import PrivacyPolicy from '../pages/privacyPolicy/PrivacyPolicy';
-import TermAndConditions from '../pages/termAndConditions/TermAndConditions';
-import RefundPolicy from '../pages/refundPolicy/RefundPolicy';
-import ContactUs from '../pages/contactUs/ContactUs';
-import Faqs from '../pages/Faqs/Faqs';
-import BankContacts from '../pages/bankContacts/BankContacts';
-import AboutUs from '../pages/aboutus/AboutUs';
-import ApplicationStatusForm from '../pages/applicationstatus/ApplicationStatusForm';
-import PaymentPage from '../pages/paymentpage/PaymentPage';
 import ProtactiveRoutes from '../pages/ProtactiveRoutes';
 const LoadingFallback = () => <Loader />;
 
