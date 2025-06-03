@@ -4,9 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../../../ui/Button';
 
 export default function CountdownTimerSection() {
-  // Define the ballot end date in UTC
-  // Example: PKT (UTC+5) 23:59:59 on 2025-07-15 is 18:59:59 UTC on 2025-07-15
-  const ballotEndDate = new Date('2025-06-02T10:03:59Z').getTime();
+  // Define the target date and time string in a "local" context
+  // This means the ballot will end at 10:00 AM on June 3rd, 2025,
+  // *in the user's current local timezone*.
+  const targetDateString = '2025-06-03T10:00:00'; // No 'Z' or timezone offset
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -17,11 +18,27 @@ export default function CountdownTimerSection() {
 
   const [isExpired, setIsExpired] = useState(false);
   const [localTimezone, setLocalTimezone] = useState('');
+  const [ballotEndDateLocal, setBallotEndDateLocal] = useState(0); // This will be the dynamically calculated local end time
+
   const navigate = useNavigate();
+
   useEffect(() => {
+    let userTimeZone = 'Your Local Time';
+    try {
+      userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      setLocalTimezone(userTimeZone);
+    } catch (e) {
+      console.error('Could not determine local timezone:', e);
+    }
+
+    // IMPORTANT CHANGE HERE: Create the Date object directly from the local string
+    // This will parse '2025-06-03T10:00:00' *as if it's in the user's local timezone*.
+    const calculatedBallotEndDate = new Date(targetDateString).getTime();
+    setBallotEndDateLocal(calculatedBallotEndDate);
+
     const timer = setInterval(() => {
       const now = new Date().getTime();
-      const distance = ballotEndDate - now;
+      const distance = calculatedBallotEndDate - now; // Calculate distance from the *local* target
 
       if (distance > 0) {
         setTimeLeft({
@@ -39,21 +56,13 @@ export default function CountdownTimerSection() {
       }
     }, 1000);
 
-    // Get user's local timezone
-    try {
-      setLocalTimezone(
-        Intl.DateTimeFormat().resolvedOptions().timeZone || 'Your Local Time'
-      );
-    } catch (e) {
-      console.error('Could not determine local timezone:', e);
-      setLocalTimezone('Your Local Time');
-    }
-
     return () => clearInterval(timer);
-  }, [ballotEndDate]);
+  }, [targetDateString]); // Depend on targetDateString if it could change
 
   const formatDate = (timestamp) => {
     const date = new Date(timestamp);
+    // When formatting, we no longer need 'timeZoneName: "short"' for the main display
+    // because the timestamp itself is already localized.
     return date.toLocaleDateString('en-US', {
       weekday: 'long',
       year: 'numeric',
@@ -61,14 +70,16 @@ export default function CountdownTimerSection() {
       day: 'numeric',
       hour: '2-digit',
       minute: '2-digit',
-      timeZoneName: 'short', // This is the key addition!
+      // timeZoneName: 'short', // Not strictly needed here as the timestamp is already local
     });
   };
+
   const handleNavigate = async () => {
     navigate('/ballot-form');
     try {
     } catch (error) {}
   };
+
   return (
     <section className="relative w-full overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 py-16">
       {/* Subtle Background Pattern */}
@@ -214,7 +225,7 @@ export default function CountdownTimerSection() {
               className="text-lg font-bold text-white md:text-xl"
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
-              {formatDate(ballotEndDate)}
+              {formatDate(ballotEndDateLocal)}
             </p>
             {localTimezone && (
               <p
