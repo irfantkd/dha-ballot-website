@@ -25,7 +25,6 @@ import BillsPayment from '../pages/Billpyment/BillsPayment';
 import { Registration } from '../pages/auth/Registration';
 import Login from '../pages/auth/Login';
 import BallotForm from '../pages/BallotForm/BallotForm';
-import ViewApplication from '../pages/applicationstatus/ApplicationStatusForm';
 import PrivacyPolicy from '../pages/privacyPolicy/PrivacyPolicy';
 import TermAndConditions from '../pages/termAndConditions/TermAndConditions';
 import RefundPolicy from '../pages/refundPolicy/RefundPolicy';
