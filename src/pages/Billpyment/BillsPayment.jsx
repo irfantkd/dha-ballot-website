@@ -288,22 +288,23 @@ import {
   Clock,
   DollarSign,
   Upload,
+  Download,
   Eye,
   Banknote,
 } from 'lucide-react'; // Using lucide-react for a modern icon set
 export default function BillsPayment() {
   return (
     <>
-      <div className="ms-10 mt-4 flex items-center gap-2 text-gray-700">
+      {/* <div className="ms-10 mt-4 flex items-center gap-2 text-gray-700">
         <CreditCard size={20} className="text-gray-500" />
         <h1 className="text-xl font-semibold text-gray-800">Bills & Payment</h1>
-      </div>
+      </div> */}
       <div className="mx-auto max-w-6xl bg-white p-6">
         <div className="rounded-xl border border-gray-200 p-8 shadow-sm">
           {/* Main Cards */}
           <div className="mb-10 grid grid-cols-1 gap-8 md:grid-cols-2">
             {/* Apply for Ballot Card */}
-            <div className="group relative cursor-pointer overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-1 shadow-md transition-all duration-300 ease-in-out hover:shadow-lg">
+            <div className="group relative cursor-pointer overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-1  transition-all duration-300 ease-in-out hover:shadow-sm">
               <div className="relative z-10 p-8 text-center">
                 <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-orange-100 text-[#EA5547] transition-all duration-300 ease-in-out group-hover:scale-110">
                   <FileText size={28} />
@@ -320,7 +321,7 @@ export default function BillsPayment() {
               <div className="absolute inset-0 z-0 rounded-xl ring-2 ring-transparent transition-all duration-300 ease-in-out group-hover:ring-[#FDC62C]"></div>
             </div>
             {/* View Application Card */}
-            <div className="group relative cursor-pointer overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-1 shadow-md transition-all duration-300 ease-in-out hover:shadow-lg">
+            <div className="group relative cursor-pointer overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-1  transition-all duration-300 ease-in-out hover:shadow-sm">
               <div className="relative z-10 p-8 text-center">
                 <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-blue-100 text-[#434143] transition-all duration-300 ease-in-out group-hover:scale-110">
                   <svg
@@ -345,7 +346,7 @@ export default function BillsPayment() {
                   </svg>
                 </div>
                 <h2 className="mb-3 text-2xl font-bold text-gray-900">
-                  View Application
+                  View Application Status
                 </h2>
                 <p className="text-base leading-relaxed text-gray-600">
                   View your application and monitor the current status.
@@ -402,126 +403,112 @@ export default function BillsPayment() {
             </div>
           </div>
           {/* Bills Table */}
-          <div className="overflow-hidden rounded-lg border border-gray-200 shadow-sm">
+          <div className="overflow-x-auto rounded-lg border border-gray-200 shadow">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+              <thead className="bg-gray-100">
                 <tr>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-600"
-                  >
-                    #Bill
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-600"
-                  >
-                    Bill Date
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-600"
-                  >
-                    Due Date
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-600"
-                  >
-                    Status
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-600"
-                  >
-                    Amount Due
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-600"
-                  >
-                    Payment
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider text-gray-600"
-                  >
-                    Action
-                  </th>
+                  {[
+                    '#Bill',
+                    'Bill Date',
+                    'Due Date',
+                    'Status',
+                    'Payment Method',
+                    'Payment',
+                    'Action',
+                  ].map((head) => (
+                    <th
+                      key={head}
+                      scope="col"
+                      className="px-6 py-3 text-left text-sm font-semibold uppercase tracking-wide text-gray-700"
+                    >
+                      {head}
+                    </th>
+                  ))}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-100 bg-white">
+              <tbody className="divide-y divide-gray-100 bg-white text-sm">
+                {/* Row 1 - Pending */}
                 <tr>
-                  <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
+                  <td className="px-6 py-4 font-medium text-gray-900">
                     #00001
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">
-                    19-6-2025
+                  <td className="px-6 py-4 text-gray-700">19-6-2025</td>
+                  <td className="px-6 py-4 text-gray-700">19-6-2025</td>
+                  <td className="px-6 py-4">
+                    <span className="inline-flex items-center rounded-md bg-[#CFECF0] px-3 py-1 text-xs font-medium ">
+                      Pending
+                    </span>
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">
-                    19-6-2025
-                  </td>
-                  <td className="whitespace-nowrap px-6 py-4">
-                    <div className="flex items-center gap-2">
-                      <span className="inline-flex rounded-full bg-orange-100 px-3 py-1 text-xs font-medium text-[#EA5547]">
-                        Pending
-                      </span>
-                    </div>
-                  </td>
-                  <td className="whitespace-nowrap px-6 py-4">
-                    <div className="flex items-center gap-2">
-                      <button className="inline-flex items-center rounded-full bg-[#FDC62C] px-3 py-1 text-xs font-medium text-gray-900 transition-colors duration-200 hover:bg-yellow-400">
-                        Pay Now
+                  <td className="px-6 py-4">
+                    <div className="flex items-center gap-2 rounded-md bg-yellow-500 px-3  py-1 text-white">
+                      <img
+                        className="h-6 w-6 rounded-full"
+                        src="https://cdn-icons-png.freepik.com/256/1897/1897028.png"
+                        alt="Manual Payment"
+                      />
+                      <button className="text-xs font-medium hover:underline">
+                        Manual Payment
                       </button>
                     </div>
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4 text-sm font-semibold text-gray-900">
+                  <td className="px-6 py-4 font-semibold text-gray-900">
                     15,000.00 Rs.
                   </td>
-                  <td className="whitespace-nowrap">
-                    <button className="inline-flex items-center gap-1 rounded-md bg-[#68482F] px-4 py-1 text-sm font-medium text-white shadow-sm transition-colors duration-200 hover:bg-[#434143]">
-                      Upload Voucher
-                      <Upload className="h-4 w-4" />
-                    </button>
+                  <td className="px-6 py-4">
+                    <div className="flex flex-wrap gap-2">
+                      <button className="flex items-center gap-1 rounded-md bg-green-600 px-3 py-1 text-sm text-white hover:bg-green-700">
+                        <Download className="h-4 w-4" />
+                        Download
+                      </button>
+                      <button className="flex items-center gap-1 rounded-md bg-gray-700 px-3 py-1 text-sm text-white hover:bg-gray-900">
+                        <Upload className="h-4 w-4" />
+                        Upload
+                      </button>
+                    </div>
                   </td>
                 </tr>
+
+                {/* Row 2 - Paid */}
                 <tr>
-                  <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
+                  <td className="px-6 py-4 font-medium text-gray-900">
                     #00002
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">
-                    10-5-2025
+                  <td className="px-6 py-4 text-gray-700">10-5-2025</td>
+                  <td className="px-6 py-4 text-gray-700">10-5-2025</td>
+                  <td className="px-6 py-4">
+                    <span className="inline-flex items-center rounded-md bg-[#CFECF0] px-3 py-1 text-xs font-medium ">
+                      Paid
+                    </span>
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-700">
-                    10-5-2025
-                  </td>
-                  <td className="whitespace-nowrap px-6 py-4">
-                    <div className="flex items-center gap-2">
-                      <span className="inline-flex rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-800">
-                        Paid
-                      </span>
-                      {/* No Pay Now button if status is Paid */}
-                    </div>
-                  </td>
-                  <td className="whitespace-nowrap px-6 py-4">
-                    <div className="flex items-center gap-2">
-                      <button className="inline-flex items-center rounded-full bg-[#FDC62C] px-3 py-1 text-xs font-medium text-gray-900 transition-colors duration-200 hover:bg-yellow-400">
-                        Pay Now
+                  <td className="px-6 py-4">
+                    <div className="flex items-center gap-2 rounded-md bg-yellow-500 px-3 py-1 text-white">
+                      <img
+                        className="h-6 w-6 rounded-full"
+                        src="https://cdn-icons-png.freepik.com/256/3080/3080541.png"
+                        alt="Online Payment"
+                      />
+                      <button className="text-xs font-medium hover:underline">
+                        Online Payment
                       </button>
                     </div>
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4 text-sm font-semibold text-gray-900">
+                  <td className="px-6 py-4 font-semibold text-gray-900">
                     15,000.00 Rs.
                   </td>
-                  <td className="whitespace-nowrap ">
-                    {/* No Upload Voucher button if status is Paid */}
-                    <button
-                      className="inline-flex cursor-not-allowed items-center gap-1 rounded-md bg-gray-300 px-4 py-1 text-sm font-medium text-gray-700"
-                      disabled
-                    >
-                      Uploaded Done
-                      <Upload className="h-4 w-4" />
-                    </button>
+                  <td className="px-6 py-4">
+                    <div className="flex flex-wrap gap-2">
+                      <button className="flex items-center gap-1 rounded-md bg-green-600 px-3 py-1 text-sm text-white hover:bg-green-700">
+                        <Download className="h-4 w-4" />
+                        Download
+                      </button>
+                      <button
+                        className="flex cursor-not-allowed items-center gap-1 rounded-md bg-gray-300 px-3 py-1 text-sm text-gray-600"
+                        disabled
+                      >
+                        <Upload className="h-4 w-4" />
+                        Uploaded
+                      </button>
+                    </div>
                   </td>
                 </tr>
               </tbody>

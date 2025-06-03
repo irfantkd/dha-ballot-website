@@ -1,10 +1,12 @@
 import { Clock, Calendar, AlertCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Button from '../../../ui/Button';
 
 export default function CountdownTimerSection() {
   // Define the ballot end date in UTC
   // Example: PKT (UTC+5) 23:59:59 on 2025-07-15 is 18:59:59 UTC on 2025-07-15
-  const ballotEndDate = new Date('2025-07-15T18:59:59Z').getTime();
+  const ballotEndDate = new Date('2025-06-02T10:03:59Z').getTime();
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -15,7 +17,7 @@ export default function CountdownTimerSection() {
 
   const [isExpired, setIsExpired] = useState(false);
   const [localTimezone, setLocalTimezone] = useState('');
-
+  const navigate = useNavigate();
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -62,7 +64,11 @@ export default function CountdownTimerSection() {
       timeZoneName: 'short', // This is the key addition!
     });
   };
-
+  const handleNavigate = async () => {
+    navigate('/ballot-form');
+    try {
+    } catch (error) {}
+  };
   return (
     <section className="relative w-full overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 py-16">
       {/* Subtle Background Pattern */}
@@ -223,12 +229,13 @@ export default function CountdownTimerSection() {
 
         {/* Call to Action */}
         <div className="text-center">
-          <button
-            className="transform rounded-full bg-red-600 px-10 py-4 text-lg font-bold text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-500 focus:ring-opacity-50 md:text-xl"
+          <Button
+            onClick={handleNavigate}
+            className="transform rounded-full !bg-[#ea5547] px-10 py-4 text-lg font-bold text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-500 focus:ring-opacity-50 md:text-xl"
             style={{ fontFamily: 'Inter, sans-serif' }}
           >
             Register for Ballot Now
-          </button>
+          </Button>
           <p
             className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-gray-300"
             style={{ fontFamily: 'Roboto, sans-serif' }}

@@ -9,14 +9,15 @@ import {
   Linkedin,
   Twitter,
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Contact us', href: '#contact' },
-    { name: 'Privacy Policy', href: '#privacy' },
-    { name: 'Refund Policy', href: '#refund' },
+    { name: 'About Us', to: '/about-us' },
+    { name: 'Contact us', to: '/contact-us' },
+    { name: 'Privacy Policy', to: '/privacy-policy' },
+    { name: 'Term and Condition', to: '/term-and-condition' },
+    { name: 'Faqs', to: '/faqs' },
   ];
 
   const contactInfo = [
@@ -58,7 +59,7 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <div className="mb-4 flex items-center">
               <div>
-                <div className="flex items-center">
+                <Link to="/" className="flex items-center">
                   <img
                     height={130}
                     width={130}
@@ -66,7 +67,7 @@ const Footer = () => {
                     alt="DHA Bahawalpur Logo"
                     className="object-contain"
                   />
-                </div>
+                </Link>
                 <div className="mt-1 text-sm italic text-gray-600"></div>
               </div>
             </div>
@@ -80,12 +81,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.to}
                     className="text-sm text-gray-600 transition-colors duration-200 hover:text-orange-500"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -145,14 +146,14 @@ const Footer = () => {
             {/* Social Media Links */}
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
-                <a
+                <Link
                   key={index}
-                  href={social.href}
+                  to={social.to}
                   className="text-gray-400 transition-colors duration-200 hover:text-orange-500"
                   aria-label={social.name}
                 >
                   {social.icon}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

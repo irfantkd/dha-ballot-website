@@ -1,227 +1,45 @@
-// import React, { useState } from 'react';
-// import DynamicForm from '../../ui/DynamicForm';
-// function BallotForm() {
-//   const [step, setStep] = useState(1);
-//   const totalSteps = 4; // REQ’D INFO, NEXT OF KIN, MORE DETAILS, PAYMENT
-
-//   // Form data state to persist across steps
-//   const [formData, setFormData] = useState({
-//     partType: '',
-//     title: '',
-//     name: '',
-//     province: '',
-//     city: '',
-//     meetingAddress: '',
-//     dateDue: '',
-//   });
-
-//   // Fields for Step 1: REQ’D INFO
-//   const step1Fields = [
-//     {
-//       name: 'partType',
-//       label: 'Part Type',
-//       type: 'select',
-//       required: true,
-//       options: [
-//         { value: 'IND01', label: 'IND01' },
-//         { value: 'IND02', label: 'IND02' },
-//       ],
-//       width: 'full',
-//     },
-//     {
-//       name: 'title',
-//       label: 'Title',
-//       type: 'select',
-//       required: true,
-//       options: [
-//         { value: 'Mr', label: 'Mr' },
-//         { value: 'Mrs', label: 'Mrs' },
-//         { value: 'Ms', label: 'Ms' },
-//       ],
-//       width: 'full',
-//     },
-//     {
-//       name: 'name',
-//       label: 'Name',
-//       type: 'text',
-//       required: true,
-//       placeholder: 'Momo Herbst',
-//       width: 'full',
-//     },
-//     {
-//       name: 'province',
-//       label: 'Province',
-//       type: 'text',
-//       required: true,
-//       width: 'full',
-//     },
-//     {
-//       name: 'city',
-//       label: 'City',
-//       type: 'text',
-//       required: true,
-//       width: 'full',
-//     },
-//     {
-//       name: 'meetingAddress',
-//       label: 'Meeting Address',
-//       type: 'text',
-//       required: true,
-//       width: 'full',
-//     },
-//     {
-//       name: 'dateDue',
-//       label: 'Date Due',
-//       type: 'date',
-//       required: true,
-//       width: 'full',
-//     },
-//   ];
-
-//   // Handle form submission for the current step
-//   const handleSubmit = (data) => {
-//     setFormData({ ...formData, ...data });
-//     if (step < totalSteps) {
-//       setStep(step + 1);
-//     } else {
-//       console.log('Final Form Submission:', formData);
-//       // Handle final submission (e.g., API call)
-//     }
-//   };
-
-//   // Handle going back to the previous step
-//   const handleBack = () => {
-//     if (step > 1) {
-//       setStep(step - 1);
-//     }
-//   };
-
-//   // Render the current step
-//   const renderStep = () => {
-//     switch (step) {
-//       case 1:
-//         return (
-//           <DynamicForm
-//             title="Application for Public Ballot"
-//             subtitle="REQ’D INFO"
-//             fields={step1Fields}
-//             onSubmit={handleSubmit}
-//             onCancel={handleBack}
-//             submitText="NEXT"
-//             cancelText={step > 1 ? 'BACK' : 'CANCEL'}
-//             initialData={formData}
-//             showConfirmation={false}
-//           />
-//         );
-//       case 2:
-//         return (
-//           <DynamicForm
-//             title="Application for Public Ballot"
-//             subtitle="NEXT OF KIN"
-//             fields={[]} // Add fields for this step
-//             onSubmit={handleSubmit}
-//             onCancel={handleBack}
-//             submitText="NEXT"
-//             cancelText="BACK"
-//             initialData={formData}
-//             showConfirmation={false}
-//           />
-//         );
-//       case 3:
-//         return (
-//           <DynamicForm
-//             title="Application for Public Ballot"
-//             subtitle="MORE DETAILS"
-//             fields={[]} // Add fields for this step
-//             onSubmit={handleSubmit}
-//             onCancel={handleBack}
-//             submitText="NEXT"
-//             cancelText="BACK"
-//             initialData={formData}
-//             showConfirmation={false}
-//           />
-//         );
-//       case 4:
-//         return (
-//           <DynamicForm
-//             title="Application for Public Ballot"
-//             subtitle="PAYMENT"
-//             fields={[]} // Add fields for this step
-//             onSubmit={handleSubmit}
-//             onCancel={handleBack}
-//             submitText="SUBMIT"
-//             cancelText="BACK"
-//             initialData={formData}
-//             showConfirmation={true}
-//           />
-//         );
-//       default:
-//         return null;
-//     }
-//   };
-
-//   return (
-//     <div className="min-h-screen bg-gray-100   p-4">
-//       {/* Step Navigation */}
-//       <div className="w-full max-w-2xl mb-4">
-//         <div className="flex justify-between bg-gray-800 text-white p-2 rounded-t-md">
-//           <div className={`flex-1 text-center py-2 ${step === 1 ? 'bg-gray-600' : ''}`}>
-//             REQ’D INFO
-//           </div>
-//           <div className={`flex-1 text-center py-2 ${step === 2 ? 'bg-gray-600' : ''}`}>
-//             NEXT OF KIN
-//           </div>
-//           <div className={`flex-1 text-center py-2 ${step === 3 ? 'bg-gray-600' : ''}`}>
-//             MORE DETAILS
-//           </div>
-//           <div className={`flex-1 text-center py-2 ${step === 4 ? 'bg-gray-600' : ''}`}>
-//             PAYMENT
-//           </div>
-//         </div>
-//       </div>
-//       {renderStep()}
-//     </div>
-//   );
-// }
-
-// export default BallotForm;
-
 import React, { useState } from 'react';
 import DynamicForm from '../../ui/DynamicForm';
 import BallotFrominstruction from './BallotFrominstruction';
+import Header from '../../ui/Header';
 
 function BallotForm() {
   const [step, setStep] = useState(1);
-  const totalSteps = 4; // REQ’D INFO, NEXT OF KIN, MORE DETAILS, PAYMENT
+  const totalSteps = 5;
 
-  // Form data state to persist across steps
   const [formData, setFormData] = useState({
-    category: '',
+    quota: '',
     plotType: '',
+    refundableAmount: '',
+    nonRefundableAmount: '',
     name: '',
     phoneNumber: '',
-    province: '',
     country: '',
-    city: '',
+    province: '',
+    district: '',
     cnicNicop: '',
     mailingAddress: '',
-    applicationDate: '',
-    dueDate: '',
+    kinName: '',
+    kinCnic: '',
+    kinPhone: '',
+    kinAddress: '',
+    armyNumber: '',
+    retirementDate: '',
+    paymentMethod: '',
   });
 
-  // Fields for Step 1: REQ’D INFO
   const step1Fields = [
     {
-      name: 'category',
-      label: 'Category',
+      name: 'quota',
+      label: 'Quota',
       type: 'select',
       required: true,
       options: [
         { value: '', label: 'Select' },
-        { value: 'CAT01', label: 'CAT01' },
-        { value: 'CAT02', label: 'CAT02' },
+        { value: 'Quota01', label: 'Quota01' },
+        { value: 'Quota02', label: 'Quota02' },
       ],
-      width: 'full',
+      width: 'half',
     },
     {
       name: 'plotType',
@@ -230,11 +48,30 @@ function BallotForm() {
       required: true,
       options: [
         { value: '', label: 'Select' },
-        { value: 'PLT01', label: 'PLT01' },
-        { value: 'PLT02', label: 'PLT02' },
+        { value: 'Residential', label: 'Residential' },
+        { value: 'Commercial', label: 'Commercial' },
       ],
-      width: 'full',
+      width: 'half',
     },
+    {
+      name: 'refundableAmount',
+      label: 'Refundable Amount',
+      type: 'text',
+      required: true,
+      placeholder: 'Enter Refundable Amount',
+      width: 'half',
+    },
+    {
+      name: 'nonRefundableAmount',
+      label: 'Non-Refundable Amount',
+      type: 'text',
+      required: true,
+      placeholder: 'Enter Non-Refundable Amount',
+      width: 'half',
+    },
+  ];
+
+  const step2Fields = [
     {
       name: 'name',
       label: 'Name',
@@ -248,31 +85,47 @@ function BallotForm() {
       label: 'Phone Number',
       type: 'text',
       required: true,
-      placeholder: '923xxxxxxx',
-      width: 'half',
-    },
-    {
-      name: 'province',
-      label: 'Province',
-      type: 'text',
-      required: true,
-      placeholder: 'Enter Province',
+      placeholder: '923xxxxxxxxx',
       width: 'half',
     },
     {
       name: 'country',
       label: 'Country',
-      type: 'text',
+      type: 'select',
       required: true,
-      placeholder: 'Enter Country',
+      options: [
+        { value: '', label: 'Select' },
+        { value: 'Pakistan', label: 'Pakistan' },
+        { value: 'USA', label: 'USA' },
+        { value: 'Canada', label: 'Canada' },
+      ],
       width: 'half',
     },
     {
-      name: 'city',
-      label: 'City',
-      type: 'text',
+      name: 'province',
+      label: 'Province',
+      type: 'select',
       required: true,
-      placeholder: 'Enter City',
+      options: [
+        { value: '', label: 'Select' },
+        { value: 'Punjab', label: 'Punjab' },
+        { value: 'Sindh', label: 'Sindh' },
+        { value: 'KPK', label: 'KPK' },
+        { value: 'Balochistan', label: 'Balochistan' },
+      ],
+      width: 'half',
+    },
+    {
+      name: 'district',
+      label: 'District',
+      type: 'select',
+      required: true,
+      options: [
+        { value: '', label: 'Select' },
+        { value: 'Lahore', label: 'Lahore' },
+        { value: 'Karachi', label: 'Karachi' },
+        { value: 'Islamabad', label: 'Islamabad' },
+      ],
       width: 'half',
     },
     {
@@ -289,117 +142,148 @@ function BallotForm() {
       type: 'text',
       required: true,
       placeholder: 'Enter Mailing Address',
-      width: 'full',
+      width: 'half',
     },
+  ];
+
+  const step3Fields = [
     {
-      name: 'applicationDate',
-      label: 'Application Date',
-      type: 'date',
+      name: 'kinName',
+      label: 'Next of Kin Name',
+      type: 'text',
       required: true,
       width: 'half',
     },
     {
-      name: 'dueDate',
-      label: 'Due Date',
+      name: 'kinCnic',
+      label: 'CNIC/NICOP',
+      type: 'text',
+      required: true,
+      width: 'half',
+    },
+    {
+      name: 'kinPhone',
+      label: 'Phone Number',
+      type: 'text',
+      required: true,
+      width: 'half',
+    },
+    {
+      name: 'kinAddress',
+      label: 'Mailing Address',
+      type: 'text',
+      required: true,
+      width: 'half',
+    },
+  ];
+
+  const step4Fields = [
+    {
+      name: 'armyNumber',
+      label: 'Army Number',
+      type: 'text',
+      required: true,
+      width: 'half',
+    },
+    {
+      name: 'retirementDate',
+      label: 'Date of Retirement',
       type: 'date',
       required: true,
       width: 'half',
     },
   ];
 
-  // Handle form submission for the current step
+  const step5Fields = [
+    {
+      name: 'paymentMethod',
+      label: 'Payment Method',
+      type: 'select',
+      required: true,
+      options: [
+        { value: '', label: 'Select' },
+        { value: 'BankChallan', label: 'Pay via Bank Challan' },
+        { value: 'CreditCard', label: 'Pay via Credit Card' },
+      ],
+      width: 'half',
+    },
+  ];
+
   const handleSubmit = (data) => {
-    setFormData({ ...formData, ...data });
+    setFormData((prev) => ({ ...prev, ...data }));
     if (step < totalSteps) {
       setStep(step + 1);
     } else {
-      console.log('Final Form Submission:', formData);
-      // Handle final submission (e.g., API call)
+      console.log('Final Form Submission:', { ...formData, ...data });
+      // TODO: Send to API here
     }
   };
 
-  // Handle going back to the previous step
   const handleBack = () => {
-    if (step > 1) {
-      setStep(step - 1);
-    }
+    if (step > 1) setStep(step - 1);
   };
 
-  // Render the current step
   const renderStep = () => {
+    const commonProps = {
+      onSubmit: handleSubmit,
+      onCancel: handleBack,
+      cancelText: step > 1 ? 'Back' : 'Cancel',
+      initialData: formData,
+      showConfirmation: step === totalSteps,
+    };
+
     switch (step) {
       case 1:
         return (
           <DynamicForm
             title="Required Info"
-            subtitle="REQ’D INFO"
+            subtitle="Step 1: Required Info"
             fields={step1Fields}
-            onSubmit={handleSubmit}
-            onCancel={handleBack}
             submitText="Next"
-            cancelText={step > 1 ? 'Back' : 'Cancel'}
-            initialData={formData}
-            showConfirmation={false}
-            instructions={
-              <div className="rounded bg-gray-100 p-2">
-                <ul className="list-disc pl-5">
-                  <li>
-                    Fill your form fields as per given format (like Cell Number
-                    923xxxxxxx)
-                  </li>
-                  <li>
-                    Enter valid email which should not contain special
-                    characters
-                  </li>
-                  <li>
-                    For country 'USA' or 'Canada' please select respective
-                    Province/State
-                  </li>
-                </ul>
-              </div>
-            }
+            {...commonProps}
           />
         );
       case 2:
         return (
           <DynamicForm
-            title="Application for Public Ballot"
-            subtitle="NEXT OF KIN"
-            fields={[]} // Add fields for this step
-            onSubmit={handleSubmit}
-            onCancel={handleBack}
+            title="Basic Info"
+            subtitle="Step 2: Basic Info"
+            fields={step2Fields}
             submitText="Next"
-            cancelText="Back"
-            initialData={formData}
-            showConfirmation={false}
+            {...commonProps}
           />
         );
       case 3:
         return (
           <DynamicForm
-            title="Application for Public Ballot"
-            subtitle="MORE DETAILS"
-            fields={[]} // Add fields for this step
-            onSubmit={handleSubmit}
-            onCancel={handleBack}
+            title="Next of Kin"
+            subtitle="Step 3: Next of Kin"
+            fields={step3Fields}
             submitText="Next"
-            cancelText="Back"
-            initialData={formData}
-            showConfirmation={false}
+            {...commonProps}
           />
         );
       case 4:
         return (
           <DynamicForm
-            title="Application for Public Ballot"
-            subtitle="PAYMENT"
-            fields={[]} // Add fields for this step
-            onSubmit={handleSubmit}
-            onCancel={handleBack}
-            submitText="Submit"
-            cancelText="Back"
-            initialData={formData}
-            showConfirmation={true}
+            title="More Details"
+            subtitle="Step 4: More Details"
+            fields={step4Fields}
+            submitText="Next"
+            {...commonProps}
+          />
+        );
+      case 5:
+        return (
+          <DynamicForm
+            title="Payment"
+            subtitle="Step 5: Payment"
+            fields={step5Fields}
+            submitText="Download"
+            currentStep={step}
+            isCancel={false}
+            isSubmit={false}
+            {...commonProps}
           />
         );
       default:
@@ -408,45 +292,55 @@ function BallotForm() {
   };
 
   return (
-    <div className="min-h-screen   bg-gray-100 p-4">
-      {/* Step Navigation */}
-      <div className="m-auto mb-4 w-full max-w-2xl">
-        <div className="flex justify-between rounded-t-md p-2 text-black">
-          <div
-            className={`flex-1 py-2 text-center ${
-              step === 1 ? 'bg-gray-600' : ''
-            }`}
-          >
-            REQ’D INFO
+    <>
+      <Header>
+        {{
+          headingText: 'Application for Public Ballot',
+        }}
+      </Header>
+
+      <div className="w-full px-4 py-10">
+        <p className="mx-auto max-w-lg text-center text-sm leading-relaxed">
+          Please make sure that you provide only correct information. Making
+          false statements will result in cancellation of your application.
+        </p>
+        <p className="mb-7 text-center text-red-600">* Fields are mandatory</p>
+
+        {/* Step Navigation */}
+        <div className="mx-auto mb-9 w-full max-w-5xl px-2">
+          <div className="flex flex-wrap justify-center gap-2 text-center text-sm font-medium">
+            {[
+              'Required Info',
+              'Basic Info',
+              'Next of Kin',
+              'More Details',
+              'Payment',
+            ].map((label, index) => (
+              <button
+                key={label}
+                type="button"
+                onClick={() => setStep(index + 1)}
+                className={`min-w-[130px] flex-1 rounded-md px-3 py-3 text-xs transition sm:text-sm ${
+                  step === index + 1
+                    ? 'bg-black text-white'
+                    : 'bg-gray-100 hover:bg-gray-200'
+                }`}
+              >
+                {label}
+              </button>
+            ))}
           </div>
-          <div
-            className={`flex-1 py-2 text-center ${
-              step === 2 ? 'bg-gray-600' : ''
-            }`}
-          >
-            NEXT OF KIN
-          </div>
-          <div
-            className={`flex-1 py-2 text-center ${
-              step === 3 ? 'bg-gray-600' : ''
-            }`}
-          >
-            MORE DETAILS
-          </div>
-          <div
-            className={`flex-1 py-2 text-center ${
-              step === 4 ? 'bg-gray-600' : ''
-            }`}
-          >
-            PAYMENT
+        </div>
+
+        {/* Form and Sidebar */}
+        <div className="mx-auto flex w-11/12 flex-col lg:flex-row ">
+          <div className="w-full px-3 lg:flex-1">{renderStep()}</div>
+          <div className="w-full lg:w-[400px]">
+            <BallotFrominstruction />
           </div>
         </div>
       </div>
-      <div className="flex">
-        {renderStep()}
-        <BallotFrominstruction />
-      </div>
-    </div>
+    </>
   );
 }
 
