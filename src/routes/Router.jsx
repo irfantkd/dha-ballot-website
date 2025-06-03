@@ -1,5 +1,5 @@
 import { useRoutes } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import ScrollToTop from '../utils/ScrollToTop';
 import Loader from '../ui/Loader';
 import AppLayout from '../ui/AppLayout';
@@ -32,7 +32,7 @@ import {
   applicationstatus,
   howtoapply,
 } from './RouteConstants';
-
+import ProtactiveRoutes from '../pages/ProtactiveRoutes';
 const LoadingFallback = () => <Loader />;
 
 export default function Router() {
@@ -71,8 +71,14 @@ export default function Router() {
           element: <BillsPayment />,
         },
         {
-          path: ballotform, // Removed index: true
-          element: <BallotForm />,
+          index: true,
+          path: ballotform,
+
+          element: (
+            <ProtactiveRoutes>
+              <BallotForm />,
+            </ProtactiveRoutes>
+          ),
         },
         {
           path: applicationstatus, // Removed index: true
