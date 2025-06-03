@@ -1,10 +1,16 @@
-import { Play } from 'lucide-react';
+import { useSelector } from 'react-redux';
 import Button from '../../../ui/Button';
 import { useNavigate } from 'react-router-dom';
 const HeroSection = () => {
+  const { isAuthenticated } = useSelector((state) => state.auth);
+
   const navigate = useNavigate('');
   const handleNavigate = async () => {
-    navigate('/ballot-form');
+    if (isAuthenticated) {
+      navigate('/ballot-form');
+    } else {
+      navigate('login');
+    }
     try {
     } catch (error) {}
   };

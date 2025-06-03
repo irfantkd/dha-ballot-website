@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import { Formik, Form, useField } from "formik"; // Using useField for custom fields
-import { usePostMutation } from "../../services/apiService";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { Link, useNavigate } from "react-router-dom";
-import { login } from "../../features/auth/authSlice";
-import { useDispatch, useSelector } from "react-redux";
-import headerImage from "../../assets/images/header-image2.jpg";
-import Loader from "../../ui/Loader";
-import dhaLogo from "../../assets/images/logo/logo.png";
+import React, { useEffect } from 'react';
+import { Formik, Form, useField } from 'formik'; // Using useField for custom fields
+import { usePostMutation } from '../../services/apiService';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Link, useNavigate } from 'react-router-dom';
+import { login } from '../../features/auth/authSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import headerImage from '../../assets/images/header-image2.jpg';
+import Loader from '../../ui/Loader';
+import dhaLogo from '../../assets/images/logo/logo.png';
 // import { LogIn } from "lucide-react";
 // Custom Field component using useField hook
 const CustomField = ({ label, ...props }) => {
@@ -40,14 +40,14 @@ export default function Login() {
   const validate = (values) => {
     const errors = {};
     if (!values.phoneNumber && !values.email) {
-      errors.phoneNumber = "Phone number or email is required";
+      errors.phoneNumber = 'Phone number or email is required';
     } else if (values.email && !/\S+@\S+\.\S+/.test(values.email)) {
-      errors.email = "Invalid email address";
+      errors.email = 'Invalid email address';
     }
     if (!values.password) {
-      errors.password = "Password is required";
+      errors.password = 'Password is required';
     } else if (values.password?.length < 6) {
-      errors.password = "Password must be at least 6 characters long";
+      errors.password = 'Password must be at least 6 characters long';
     }
     return errors;
   };
@@ -55,23 +55,23 @@ export default function Login() {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await postMutation({
-        path: "/authentication/login",
+        path: '/authentication/login',
         body: values,
-        method: "POST",
+        method: 'POST',
       });
       if (response?.data?.meta?.token) {
         await dispatch(login(response));
-        toast.success("Login successful! Redirecting...");
-        navigate("/dashboard");
+        toast.success('Login successful! Redirecting...');
+        navigate('/dashboard');
       } else {
         toast.error(
           response?.error?.data?.message ||
-            "Login failed. Please check your credentials."
+            'Login failed. Please check your credentials.'
         );
       }
     } catch (err) {
       toast.error(
-        err?.data?.message || "Login failed. Please check your credentials."
+        err?.data?.message || 'Login failed. Please check your credentials.'
       );
     } finally {
       setSubmitting(false);
@@ -80,24 +80,24 @@ export default function Login() {
 
   useEffect(() => {
     if (token) {
-      navigate("/dashboard");
+      navigate('/dashboard');
     }
   }, [navigate, token]);
 
   if (!token) {
     return (
       <>
-        <section className="flex flex-col md:flex-row md:w-[90%] p-5 md:p-0 mx-auto items-center justify-center gap-6 min-h-screen ">
-          <div className="w-full md:w-1/2 bg-white p-6 ">
+        <section className="mx-auto flex min-h-screen flex-col items-center justify-center gap-6 p-5 md:w-[90%] md:flex-row md:p-0 ">
+          <div className="w-full bg-white p-6 md:w-1/2 ">
             <div className="text-center">
-              <img src={dhaLogo} alt="DHA Logo" className="mx-auto w-30 mb-4" />
-              <h2 className="font-bold text-2xl mb-4 text-left">
+              <img src={dhaLogo} alt="DHA Logo" className="w-30 mx-auto mb-4" />
+              <h2 className="mb-4 text-left text-2xl font-bold">
                 Welcome back! Glad to see you again
               </h2>
             </div>
 
             <Formik
-              initialValues={{ email: "", password: "" }}
+              initialValues={{ email: '', password: '' }}
               validate={validate}
               onSubmit={handleSubmit}
             >
@@ -136,11 +136,11 @@ export default function Login() {
                     disabled={isSubmitting || isLoading}
                     className="w-full rounded-md bg-gray-800 py-2 text-white hover:bg-gray-900"
                   >
-                    {isLoading ? "Signing In..." : "Login"}
+                    {isLoading ? 'Signing In...' : 'Login'}
                   </button>
 
                   <p className="mt-4 text-center text-[#5B3D22]">
-                    Don't have an account?{" "}
+                    Don't have an account?{' '}
                     <Link to="/register" className="underline">
                       Register Now
                     </Link>
@@ -150,9 +150,9 @@ export default function Login() {
             </Formik>
           </div>
 
-          <div className="w-2/5 hidden md:block mt-10">
+          <div className="mt-10 hidden w-2/5 md:block">
             <div
-              className="w-full h-[90dvh] bg-cover bg-center rounded-2xl"
+              className="h-[90dvh] w-full rounded-2xl bg-cover bg-center"
               style={{ backgroundImage: `url(${headerImage})` }}
             ></div>
           </div>
