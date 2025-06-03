@@ -4,8 +4,20 @@ import ScrollToTop from '../utils/ScrollToTop';
 import Loader from '../ui/Loader';
 import AppLayout from '../ui/AppLayout';
 import NotFound from '../pages/NotFound';
-// import { BILL, HOME, ballotform, applicationstatus } from './RouteConstants';
-
+import Home from '../pages/home/Home';
+import BillsPayment from '../pages/Billpyment/BillsPayment';
+import { Registration } from '../pages/auth/Registration';
+import Login from '../pages/auth/Login';
+import BallotForm from '../pages/BallotForm/BallotForm';
+import ApplicationStatusForm from '../pages/applicationstatus/ApplicationStatusForm';
+import PrivacyPolicy from '../pages/privacyPolicy/PrivacyPolicy';
+import TermAndConditions from '../pages/termAndConditions/TermAndConditions';
+import RefundPolicy from '../pages/refundPolicy/RefundPolicy';
+import ContactUs from '../pages/contactUs/ContactUs';
+import Faqs from '../pages/Faqs/Faqs';
+import BankContacts from '../pages/bankContacts/BankContacts';
+import AboutUs from '../pages/aboutUs/AboutUs';
+import HowToApply from '../pages/howToApply/HowToApply'; // Kept only one import
 import {
   ABOUTUS,
   BANKCONTACTS,
@@ -18,6 +30,7 @@ import {
   TERMANDCONDITIONS,
   ballotform,
   applicationstatus,
+  howtoapply,
 } from './RouteConstants';
 import Home from '../pages/home/Home';
 // import SignIn, { Registration } from '../pages/auth/Registration'; // Import the SignIn component (adjust the path as needed)
@@ -25,6 +38,7 @@ import BillsPayment from '../pages/Billpyment/BillsPayment';
 import { Registration } from '../pages/auth/Registration';
 import Login from '../pages/auth/Login';
 import BallotForm from '../pages/BallotForm/BallotForm';
+import ViewApplication from '../pages/applicationstatus/ApplicationStatusForm';
 import PrivacyPolicy from '../pages/privacyPolicy/PrivacyPolicy';
 import TermAndConditions from '../pages/termAndConditions/TermAndConditions';
 import RefundPolicy from '../pages/refundPolicy/RefundPolicy';
@@ -33,7 +47,6 @@ import Faqs from '../pages/Faqs/Faqs';
 import BankContacts from '../pages/bankContacts/BankContacts';
 import AboutUs from '../pages/aboutus/AboutUs';
 import ApplicationStatusForm from '../pages/applicationstatus/ApplicationStatusForm';
-import PaymentPage from '../pages/paymentpage/PaymentPage';
 const LoadingFallback = () => <Loader />;
 
 export default function Router() {
@@ -71,7 +84,7 @@ export default function Router() {
       element: <AppLayout />,
       children: [
         {
-          index: true,
+          index: true, // Only this route should have index: true
           path: HOME,
           element: <Home />,
         },
@@ -80,13 +93,11 @@ export default function Router() {
           element: <BillsPayment />,
         },
         {
-          index: true,
-          path: ballotform,
+          path: ballotform, // Removed index: true
           element: <BallotForm />,
         },
         {
-          index: true,
-          path: applicationstatus,
+          path: applicationstatus, // Removed index: true
           element: <ApplicationStatusForm />,
         },
         {
@@ -116,6 +127,10 @@ export default function Router() {
         {
           path: ABOUTUS,
           element: <AboutUs />,
+        },
+        {
+          path: howtoapply, // Removed index: true
+          element: <HowToApply />,
         },
       ],
     },

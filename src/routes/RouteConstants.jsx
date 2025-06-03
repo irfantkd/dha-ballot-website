@@ -11,3 +11,4 @@ export const FAQS = '/faqs';
 export const BANKCONTACTS = '/bank-contacts';
 export const ABOUTUS = '/about-us';
 export const PAYMENT = '/payment';
+export const howtoapply = '/howtoapply';
