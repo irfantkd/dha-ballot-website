@@ -14,11 +14,9 @@ function App() {
       <WhatsAppButton phoneNumber="+92 341 1111518" />
       <ToastContainer />
       <Router />
-       {/* <HeroSection /> */}
+      {/* <HeroSection /> */}
     </>
   );
 }
 
 export default App;
-
-

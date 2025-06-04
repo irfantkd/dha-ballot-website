@@ -23,11 +23,11 @@ const AboutUs = () => {
         {/* Background Overlay with Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://via.placeholder.com/1920x1080/434143/ffffff?text=DHA+Bahawalpur+Balloting+Overview" // Replace with a high-res, relevant image
+            src="https://res.cloudinary.com/dktyonr0v/image/upload/v1740123076/website-static-images/header-image.jpg" // Replace with a high-res, relevant image
             alt="DHA Bahawalpur Aerial View"
             className="h-full w-full object-cover object-center opacity-20" // Subtle background effect
           />
-          <div className="absolute inset-0 bg-[#1A191A] opacity-75"></div>{' '}
+          <div className="absolute inset-0 bg-[#1A191A] opacity-10"></div>{' '}
           {/* Dark overlay for text readability */}
         </div>
 
