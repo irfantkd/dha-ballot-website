@@ -17,7 +17,7 @@ import ContactUs from '../pages/contactUs/ContactUs';
 import Faqs from '../pages/Faqs/Faqs';
 import BankContacts from '../pages/bankContacts/BankContacts';
 import AboutUs from '../pages/aboutUs/AboutUs';
-import HowToApply from '../pages/howToApply/HowToApply'; // Kept only one import
+import HowToApply from '../pages/howToApply/HowToApply';
 import {
   ABOUTUS,
   BANKCONTACTS,
@@ -62,7 +62,7 @@ export default function Router() {
       element: <AppLayout />,
       children: [
         {
-          index: true, // Only this route should have index: true
+          index: true,
           path: HOME,
           element: <Home />,
         },
@@ -81,7 +81,7 @@ export default function Router() {
           ),
         },
         {
-          path: applicationstatus, // Removed index: true
+          path: applicationstatus,
           element: <ApplicationStatusForm />,
         },
         {
@@ -113,7 +113,7 @@ export default function Router() {
           element: <AboutUs />,
         },
         {
-          path: howtoapply, // Removed index: true
+          path: howtoapply,
           element: <HowToApply />,
         },
       ],
